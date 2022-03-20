@@ -4,6 +4,25 @@
   border: solid 1px $deepOceanBlue;
   border-radius: 4px;
   cursor: pointer;
+  background: $white;
+
+  &:hover {
+    border: solid 1px $white;
+    background: $gradientTELx;
+    .card-page-icon-title {
+      h4 {
+        color: $white;
+      }
+      .tw-icon {
+        svg * {
+          fill: $white; 
+        }
+      }
+    }
+    p {
+      color: $white;
+    }
+  }
 
   .card-page-icon-title {
     display: flex;
