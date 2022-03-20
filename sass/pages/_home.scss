@@ -5,6 +5,24 @@
       h1 {
         line-height: 1.2;
       }
+
+      .card-page-buttons {
+        display: grid;
+        grid-gap: 20px;
+      }
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .home-intro-and-twitter {
+    .home-intro {
+      .home-intro-inner {  
+        .card-page-buttons {
+          margin-top: 48px;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
     }
   }
 }
@@ -26,7 +44,7 @@
         max-width: 640px;
 
         h1 {
-          font-size: 48px;
+          font-size: 40px;
           line-height: 1.2;
         }
       }
