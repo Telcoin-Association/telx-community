@@ -1,5 +1,7 @@
 .home-intro-and-twitter {
+  background-color: $gray100;
   .home-intro {
+    padding-top: 64px;
     .home-intro-inner {
 
       h1 {
@@ -7,8 +9,12 @@
       }
 
       .card-page-buttons {
+        margin-top: 48px;
         display: grid;
         grid-gap: 20px;
+        @media(min-width: $md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
     }
   }
@@ -23,19 +29,6 @@
   }
   @media(min-width: $lg) {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media(min-width: $md) {
-  .home-intro-and-twitter {
-    .home-intro {
-      .home-intro-inner {  
-        .card-page-buttons {
-          margin-top: 48px;
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-    }
   }
 }
 

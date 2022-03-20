@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import LinkItem from "../common/LinkItem";
+import { NavigateAway as NavigateAwayIcon } from "@transferwise/icons";
 
 interface NavigationSharedInnerProps {
   navigationItems: Array<any>;
@@ -42,6 +43,16 @@ export default function NavigationSharedInner(props: NavigationSharedInnerProps)
                 )
               })
             }
+            <li className="telx-portal-link">
+              <NavigateAwayIcon size={24}/>
+              <LinkItem 
+                linkUrl="https://telx.network"
+                linkText="Official TELx Portal"
+                external={true}
+                newWindow={false}
+                onClick={() => !toggleMobileNavOpen(false)}
+              />
+            </li>
           </ul>
           <div className="nsi-socials">
             <a href="https://twitter.com/joshworley_io">

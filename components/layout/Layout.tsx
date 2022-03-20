@@ -2,9 +2,7 @@ import React, { ReactElement, useState } from "react";
 import HeaderMobile from "./HeaderMobile";
 import NavigationDesktop from "./NavigationDesktop";
 import NavigationMobile from "./NavigationMobile";
-// import { ContentfulSocialsProps } from "../common/Socials";
-// import Footer, { ContentfulFooterProps } from "./Footer";
-// import Header from "./Header";
+import Footer, { FooterProps } from "./Footer";
 
 export const navigationItems = [
   {
@@ -70,6 +68,7 @@ export default function Layout(props: LayoutProps) {
           {children}
           {/* {footer && <Footer socials={socials} footer={footer} />} */}
         </div>
+        <Footer />
       </div>
     </div>
   );

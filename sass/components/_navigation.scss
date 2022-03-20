@@ -9,11 +9,13 @@
 #navigation-mobile {
   display: block !important;
   position: fixed;
-  right: -75%;
-  width: 75%;
+  right: -80%;
+  width: 80%;
   top: 0;
   transition: right ease .2s;
   z-index: 1000;
+  height: 100%;
+  border-left: solid 1px $gray200;
 
   .close-menu {
     position: absolute;
@@ -30,37 +32,59 @@
 }
 
 #navigation-shared-inner {
-  background-image: url('/backgrounds/sidenav.jpg');
-  @include imageBackground();
-
+  height: 100%;
   .navigation-shared-inner-skrim {
     background: $white;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
+    padding: 40px 0;
+    height: 100%;
+    .nsi-logo-wrapper {
+      padding: 40px;
+    }
   }
   h1 {
-    color: $gray100;
+    color: $gray700;
     margin:  0 0 8px;
+    font-size: 24px;
+    line-height: 1;
   }
   h4 {
     font-weight: normal;
-    color: $gray300;
+    color: $gray500;
     margin: 0;
-    font-size: 14px;
-    max-width: 80%;
+    font-size: 12px;
   }
   ul {
     list-style: none;
     padding: 0;
+    border-bottom: solid 1px $gray200;
+    margin: 0;
     li {
-      margin-bottom: 16px;
+      margin: 0;
       @include textBold();
+      position: relative;
       a {
-        color: $gray200;
-        font-size: 18px;
+        color: $deepOceanBlue;
+        font-size: 16px;
+        padding: 20px 40px;
+        border-top: solid 1px $gray200;
+        display: block;
         &:hover {
-          color: $gray300;
+          color: $purple;
+        }
+      }
+      &.telx-portal-link {
+        background: $gradientTELx;
+        .tw-icon {
+          position: absolute;
+          left: 40px;
+          top: 18px;
+          svg * {
+            color: $white;
+          }
+        }
+        a {
+          padding-left: 68px;
+          color: $white;
         }
       }
     }
@@ -89,8 +113,6 @@
     width: 50%;
     #navigation-shared-inner {
       .navigation-shared-inner-skrim {
-        padding: 64px;
-
         h4 {
           font-size: 14px;
         }
@@ -108,7 +130,11 @@
     .navigation-shared-inner-skrim {
       background-color: none;
       background: $gradientTELx;
-      padding: 24px 40px;
+      padding: 0 0 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
 
       .nsi-socials {
         display: none;
@@ -123,15 +149,54 @@
         display: none;
       }
 
+      .nsi-logo-wrapper {
+        padding: 0;
+        h1 {
+          color: $white;
+        }
+      }
+
       .nsi-menu-items {
         ul {
           display: flex;
           margin: 0;
+          border: 0;
           li {
             margin: 0;
             a {
               font-size: 16px;
-              padding: 0 24px;
+              border: 0;
+              color: $white;
+              padding: 30px 32px;
+              height: 80px;
+              &:hover {
+                background-color: $white90;
+                color: $deepOceanBlue;
+              }
+            }
+            &.telx-portal-link {
+              .tw-icon {
+                top: 33%;
+                * {
+                  color: $deepOceanBlue;
+                }
+              }
+              a {
+                background-color: $white;
+                color: $deepOceanBlue;
+                padding-left: 68px;
+                border-bottom: solid 1px $gray200;
+              }
+              &:hover {
+                .tw-icon {
+                  * {
+                    color: $purple;
+                  }
+                }
+                a {
+                  color: $purple;
+                }
+              }
             }
           }
         }

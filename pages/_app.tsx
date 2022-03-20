@@ -26,7 +26,6 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <Head>
         <title>TELx Community</title>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://use.typekit.net/hey0asi.css" />
       </Head>
 
       

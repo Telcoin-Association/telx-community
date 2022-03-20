@@ -70,30 +70,35 @@ const Home: NextPage = () => {
       <main>
 
         <section className="home-intro-and-twitter">
-          <div className="home-intro">
-            <div className="home-intro-inner">
-              <h1>Welcome to the Community</h1>
-              <p>TELx Community is created by volunteers. We come together to bring you educational materials on DeFi and TELx. Here you will find resources to help you start your DeFi journey, as well as a family of community members supporting each other. Get started by clicking on one of the links below. If you have any questions, don’t hesitate to reach out to us on Twitter.</p>
+          <div className="page-layout-centered">
+            <div className="page-layout-centered-inner">
+              <div className="home-intro">
+                <div className="home-intro-inner">
+                  <h1>Welcome to the Community</h1>
+                  <p>TELx Community is created by volunteers. We come together to bring you educational materials on DeFi and TELx. Here you will find resources to help you start your DeFi journey, as well as a family of community members supporting each other. Get started by clicking on one of the links below. If you have any questions, don’t hesitate to reach out to us on Twitter.</p>
 
-              <div className="card-page-buttons">
-                {
-                  cardPageButtons.map((cpb, i) => {
-                    const { linkUrl, title, icon, description } = cpb;
-                    return (
-                      <div key={`${title}-${i}`}>
-                        <CardPageButton 
-                          linkUrl={linkUrl}
-                          title={title}
-                          icon={icon}
-                          description={description}
-                        />
-                      </div>
-                    )
-                  })
-                }
-              </div>
+                  <div className="card-page-buttons">
+                    {
+                      cardPageButtons.map((cpb, i) => {
+                        const { linkUrl, title, icon, description } = cpb;
+                        return (
+                          <div key={`${title}-${i}`}>
+                            <CardPageButton 
+                              linkUrl={linkUrl}
+                              title={title}
+                              icon={icon}
+                              description={description}
+                            />
+                          </div>
+                        )
+                      })
+                    }
+                  </div>
+                </div>
+              </div>  
             </div>
           </div>
+          
           <div className="home-twitter">
             <h4>Twitter</h4>
           </div>  
@@ -103,7 +108,7 @@ const Home: NextPage = () => {
         <section>
           <div className="page-layout-centered">
             <div className="page-layout-centered-inner">
-              <h2>Made with 💙 by #telfam members</h2>
+              <h2>Made with 💙 by <a href="https://twitter.com/search?q=%23Telfam">#telfam</a> members</h2>
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
               <div className="twitter-members">
               {
