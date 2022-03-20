@@ -2,6 +2,61 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import CardPageButton from '../components/common/CardPageButton'
+import TwitterMember from '../components/common/TwitterMember'
+
+const cardPageButtons = [
+  { 
+    linkUrl: '/analytics',
+    title: 'Analytics',
+    icon: 'graph',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+  },
+  { 
+    linkUrl: '/tools',
+    title: 'Tools',
+    icon: 'office-expenses',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+  },
+  { 
+    linkUrl: '/guides',
+    title: 'Guides',
+    icon: 'info-circle',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+  },
+  { 
+    linkUrl: '/media',
+    title: 'Media',
+    icon: 'camera',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+  },
+]
+
+const twitterMembers = [
+  { 
+    name: 'Andrew Pinch', 
+    handle: '@andrew_pinch', 
+    image: 'https://pbs.twimg.com/profile_images/1450753252581167106/xPXNBxp7_400x400.jpg', 
+    linkUrl: 'https://twitter.com/andrew_pinch' 
+  },
+  { 
+    name: 'Serdar', 
+    handle: '@creepindeath', 
+    image: 'https://pbs.twimg.com/profile_images/1429711711154618370/9-_ipahf_400x400.jpg', 
+    linkUrl: 'https://twitter.com/serdartepeyurt' 
+  },
+  { 
+    name: 'Scott R', 
+    handle: '@DJPressha', 
+    image: 'https://pbs.twimg.com/profile_images/1500611722763251715/NxStaKq1_400x400.jpg', 
+    linkUrl: 'https://twitter.com/DJPressha' 
+  },
+  { 
+    name: 'Josh Worley', 
+    handle: '@joshworley_io', 
+    image: 'https://pbs.twimg.com/profile_images/1503875418427994113/53nkYIMp_400x400.jpg',
+    linkUrl: 'https://twitter.com/joshworley_io'
+  },
+]
 
 const Home: NextPage = () => {
   return (
@@ -21,36 +76,54 @@ const Home: NextPage = () => {
               <p>TELx Community is created by volunteers. We come together to bring you educational materials on DeFi and TELx. Here you will find resources to help you start your DeFi journey, as well as a family of community members supporting each other. Get started by clicking on one of the links below. If you have any questions, don’t hesitate to reach out to us on Twitter.</p>
 
               <div className="card-page-buttons">
-                <CardPageButton 
-                  linkUrl="/analytics"
-                  title="Analytics"
-                  icon="graph"
-                  description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
-                />
-                <CardPageButton 
-                  linkUrl="/tools"
-                  title="Tools"
-                  icon="office-expenses"
-                  description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
-                />
-                <CardPageButton 
-                  linkUrl="/guides"
-                  title="Guides"
-                  icon="info-circle"
-                  description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
-                />
-                <CardPageButton 
-                  linkUrl="/media"
-                  title="Media"
-                  icon="camera"
-                  description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
-                />
+                {
+                  cardPageButtons.map((cpb, i) => {
+                    const { linkUrl, title, icon, description } = cpb;
+                    return (
+                      <div key={`${title}-${i}`}>
+                        <CardPageButton 
+                          linkUrl={linkUrl}
+                          title={title}
+                          icon={icon}
+                          description={description}
+                        />
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
           </div>
           <div className="home-twitter">
             <h4>Twitter</h4>
           </div>  
+        </section>
+
+
+        <section>
+          <div className="page-layout-centered">
+            <div className="page-layout-centered-inner">
+              <h2>Made with 💙 by #telfam members</h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+              <div className="twitter-members">
+              {
+                  twitterMembers.map((tm, i) => {
+                    const { linkUrl, name, handle, image } = tm;
+                    return (
+                      <div key={`${name}-${i}`}>
+                        <TwitterMember 
+                          linkUrl={linkUrl}
+                          name={name}
+                          handle={handle}
+                          image={image}
+                        />
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
         </section>
 
       </main>

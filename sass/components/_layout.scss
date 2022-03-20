@@ -8,3 +8,30 @@
   }
 }
 
+
+
+.page-layout-centered {
+  margin-top: 64px;
+  padding: 0 20px 80px;
+}
+
+@media (min-width: $md) {
+  .page-layout-centered {
+    margin-top: 80px;
+    padding: 0 20px 120px;
+    .page-layout-centered-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  .page-layout-centered {
+    margin-top: 80px;
+    padding: 0 64px 120px;
+    .page-layout-centered-inner {
+      max-width: 1200px;
+    }
+  }
+}
