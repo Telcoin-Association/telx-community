@@ -5,3 +5,10 @@ body {
 #page-content {
   margin-top: 64px;
 }
+
+@media(min-width: $lg) {
+  #page-content {
+    margin-top: 0;
+  }
+}
+

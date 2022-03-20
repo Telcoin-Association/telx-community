@@ -1,0 +1,38 @@
+.home-intro-and-twitter {
+  .home-intro {
+    .home-intro-inner {
+
+      h1 {
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+
+@media(min-width: $lg) {
+  .home-intro-and-twitter {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+    .home-intro {
+      background-color: $gray100;
+      min-height: calc(100vh - 80px);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .home-intro-inner {
+        max-width: 640px;
+
+        h1 {
+          font-size: 48px;
+          line-height: 1.2;
+        }
+      }
+    }
+    .home-twitter {
+      background-color: $white;
+    }
+  }
+}

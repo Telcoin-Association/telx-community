@@ -15,7 +15,6 @@ export default function NavigationSharedInner(props: NavigationSharedInnerProps)
       id="navigation-shared-inner"
     >
       <div className="navigation-shared-inner-skrim">
-
         <div className="nsi-logo-wrapper">
           <Link href="/">
             <a onClick={() => toggleMobileNavOpen(false)}>
