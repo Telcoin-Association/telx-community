@@ -1,5 +1,6 @@
 {
   "name": "telx-community",
+  "description": "Community-driven webapp for educational information on the TELx Liquidity Engine",
   "version": "0.1.0",
   "private": true,
   "scripts": {
