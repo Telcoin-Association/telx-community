@@ -1,0 +1,26 @@
+#header-mobile {
+  background: $gradientTELx;  
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  align-items: center;
+  height: 64px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  h4 {
+    margin: 0;
+    color: $gray100;
+    font-size: 24px;
+  }
+  svg * {
+    fill: $gray200;
+  }
+}
+
+@media(min-width: $lg) {
+  #header-mobile {
+    display: none !important;
+  }
+}

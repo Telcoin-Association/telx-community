@@ -1,0 +1,123 @@
+@mixin textHairline {
+  font-family: hero-new-hairline, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+@mixin textLight {
+  font-family: hero-new, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin textRegular {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@mixin textMedium {
+  font-family: hero-new, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin textBold {
+  font-family: hero-new, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  @include textBold();
+  color: $gray700;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 42px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+p, li, a, div, span {
+  @include textRegular();
+}
+
+li {
+  p {
+    margin: 0;
+  }
+}
+
+p {
+  color: $gray500;
+  margin: 0 0 12px;
+  line-height: 1.7;
+  & > ul,
+  & > ol {
+    margin: 0 0 4px;
+  }
+}
+
+ul, ol {
+  margin: 12px 0 24px;
+}
+
+a {
+  color: $deepOceanBlue;
+  font-weight: bold;
+  text-decoration: none;
+  transition: ease-in .2s;
+  &:not(.btn),
+  &:note(.disabled) {
+    &:hover {
+      color: $telcoinBlueDark;
+    }
+  }
+}
+
+.title-subtitle {
+  h2 {
+    margin-top: 0;
+  }
+  p {
+    margin-top: 12px !important;
+    & > p {
+
+    }
+  }
+}
+
+.title-subtitle-centered {
+  text-align: center;
+  h2 {
+    margin-top: 0;
+  }
+}
+
+@media(min-width: $md) {
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .title-subtitle-centered {
+    max-width: 80%;
+    margin: 0 auto 80px;
+    p {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+

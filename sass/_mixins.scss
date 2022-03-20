@@ -1,0 +1,50 @@
+@mixin contentInner {
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 540px;
+
+  @media(min-width: $md) {
+    max-width: 640px;
+    padding: 0 48px;
+  }
+
+  @media(min-width: $lg) {
+    max-width: 720px;
+    padding: 0 80px;
+  }
+
+  @media(min-width: $xl) {
+    padding: 0;
+  }
+}
+
+@mixin documentInner {
+  padding-top: 64px;
+  padding-bottom: 80px;
+
+  @media(min-width: $md) {
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  @media(min-width: $lg) {
+    padding-top: 96px;
+    padding-bottom: 120px;
+  }
+}
+
+
+@mixin imageBackground {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+}
+
+@mixin skrim90 {
+  background: rgba(243, 243, 244, 0.9);
+}
+
+@mixin skrim80 {
+  background: rgba(243, 243, 244, 0.8);
+}
