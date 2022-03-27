@@ -25,6 +25,21 @@ export const navigationItems = [
   },
 ];
 
+export const socialItems = [
+  {
+    link: "https://twitter.com/telxcommunity",
+    icon: "twitter",
+    external: true,
+    newWindow: true
+  },
+  // {
+  //   link: "/analytics",
+  //   icon: "discord",
+  //   external: false,
+  //   newWindow: false
+  // },
+];
+
 interface LayoutProps {
   // footer: ContentfulFooterProps[];
   // socials: ContentfulSocialsProps[];
@@ -62,7 +77,10 @@ export default function Layout(props: LayoutProps) {
           {children}
           {/* {footer && <Footer socials={socials} footer={footer} />} */}
         </div>
-        <Footer />
+        <Footer 
+          navigationItems={navigationItems}
+          socialItems={socialItems}
+        />
       </div>
     </div>
   );

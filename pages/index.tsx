@@ -4,27 +4,6 @@ import Image from 'next/image'
 import CardPageButton from '../components/common/CardPageButton'
 import TwitterMember from '../components/common/TwitterMember'
 
-const cardPageButtons = [
-  { 
-    linkUrl: '/analytics',
-    title: 'Analytics',
-    icon: 'graph',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
-  },
-  { 
-    linkUrl: '/tools',
-    title: 'Tools',
-    icon: 'office-expenses',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
-  },
-  { 
-    linkUrl: '/education',
-    title: 'Education',
-    icon: 'info-circle',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
-  },
-]
-
 const twitterMembers = [
   { 
     name: 'Andrew Pinch', 

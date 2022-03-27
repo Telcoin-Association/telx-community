@@ -77,9 +77,9 @@ a {
   font-weight: bold;
   text-decoration: none;
   &:not(.btn),
-  &:note(.disabled) {
+  &:not(.disabled) {
     &:hover {
-      color: $purple;
+      color: $telcoinBlue;
     }
   }
 }

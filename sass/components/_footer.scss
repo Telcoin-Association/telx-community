@@ -1,11 +1,40 @@
 footer {
-  background-color: $gray7;
+  background-color: $gray9;
   .page-layout-centered {
     padding-top: 40px;
     padding-bottom: 40px;
     margin-top: 0;
+
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+        margin: 0 0 12px;
+      }
+    }
     h4 {
-      color: $gray4;
+      color: $gray3;
+      font-size: 24px;
+      margin: 0 0 24px;
+    }
+    p {
+      color: $gray6;
+    }
+    .footer-cols {
+      display: grid;
+      @media(min-width: $md) {
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 40px;
+      }
+      @media(min-width: $lg) {
+        grid-template-columns: 1fr 3fr;
+      }
+
+      .footer-column-disclaimer {
+        p {
+          font-size: 12px;
+        }
+      }
     }
   }
 }
