@@ -3,22 +3,23 @@ import Head from 'next/head'
 import Image from 'next/image'
 import CardPageButton from '../components/common/CardPageButton'
 import TwitterMember from '../components/common/TwitterMember'
+import TwitterTimeline from '../components/common/TwitterTimeline'
 
 const twitterMembers = [
   { 
-    name: 'Andrew Pinch', 
+    name: 'Andrew (Canada)', 
     handle: '@andrew_pinch', 
     image: 'https://pbs.twimg.com/profile_images/1450753252581167106/xPXNBxp7_400x400.jpg', 
     linkUrl: 'https://twitter.com/andrew_pinch' 
   },
   { 
-    name: 'Serdar', 
+    name: 'Serdar (Turkey)', 
     handle: '@creepindeath', 
     image: 'https://pbs.twimg.com/profile_images/1429711711154618370/9-_ipahf_400x400.jpg', 
     linkUrl: 'https://twitter.com/serdartepeyurt' 
   },
   { 
-    name: 'Scott R', 
+    name: 'Scott (USA)', 
     handle: '@DJPressha', 
     image: 'https://pbs.twimg.com/profile_images/1500611722763251715/NxStaKq1_400x400.jpg', 
     linkUrl: 'https://twitter.com/DJPressha' 
@@ -83,7 +84,7 @@ const Home: NextPage = () => {
           </div>
           
           <div className="home-twitter">
-            <h4>Twitter</h4>
+            <TwitterTimeline />
           </div>  
         </section>
 

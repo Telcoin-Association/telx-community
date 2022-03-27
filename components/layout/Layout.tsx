@@ -6,6 +6,12 @@ import Footer, { FooterProps } from "./Footer";
 
 export const navigationItems = [
   {
+    link: "/education",
+    name: "Education",
+    external: false,
+    newWindow: false
+  },
+  {
     link: "/analytics",
     name: "Analytics",
     external: false,
@@ -14,12 +20,6 @@ export const navigationItems = [
   {
     link: "/tools",
     name: "Tools",
-    external: false,
-    newWindow: false
-  },
-  {
-    link: "/education",
-    name: "Education",
     external: false,
     newWindow: false
   },

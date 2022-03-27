@@ -1,5 +1,9 @@
 .home-intro-and-twitter {
-  background-color: $gray1;
+  background-color: $gray3;
+
+  .page-layout-centered {
+    background-color: $gray1;
+  }
   .home-intro {
     padding-top: 64px;
     .home-intro-inner {
@@ -18,6 +22,11 @@
       }
     }
   }
+  .home-twitter {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .twitter-members {
@@ -25,7 +34,7 @@
   grid-gap: 20px;
   margin: 40px 0 0;
   @media(min-width: $md) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   @media(min-width: $lg) {
     grid-template-columns: repeat(4, 1fr);
@@ -38,8 +47,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     .page-layout-centered {
-      margin: 96px 0;
-      padding: 0 40px;
+      margin: 0;
+      padding: 96px 40px;
     }
     
     .home-intro {
