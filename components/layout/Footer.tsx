@@ -1,5 +1,6 @@
 import React from "react";
 import LinkItem from "../common/LinkItem";
+import Socials from "../common/Socials";
 
 export interface FooterProps {
   navigationItems: Array<any>;
@@ -7,7 +8,7 @@ export interface FooterProps {
 }
 
 export default function HeaderMobile(props: FooterProps) {
-  const { navigationItems } = props;
+  const { navigationItems, socialItems } = props;
 
   return (
     <footer>
@@ -33,6 +34,7 @@ export default function HeaderMobile(props: FooterProps) {
                   })
                 }
               </ul>
+              <Socials socialItems={socialItems} />
             </div>
             <div className="footer-column-disclaimer">
               <p>

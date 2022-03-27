@@ -29,15 +29,7 @@ export const socialItems = [
   {
     link: "https://twitter.com/telxcommunity",
     icon: "twitter",
-    external: true,
-    newWindow: true
   },
-  // {
-  //   link: "/analytics",
-  //   icon: "discord",
-  //   external: false,
-  //   newWindow: false
-  // },
 ];
 
 interface LayoutProps {

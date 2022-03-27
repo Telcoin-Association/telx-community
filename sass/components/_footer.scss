@@ -36,5 +36,26 @@ footer {
         }
       }
     }
+
+    .socials {
+      ul {
+        li {
+          height: 24px;
+          width: 24px;
+          display: inline-block;
+          margin: 0 12px 0 0;
+          svg {
+            * {
+              fill: $communityBlue;
+            }
+            &:hover {
+              * {
+                fill: $telcoinBlue;
+              } 
+            }
+          } 
+        }
+      }
+    }
   }
 }
