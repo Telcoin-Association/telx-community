@@ -14,7 +14,7 @@ const twitterMembers = [
   },
   { 
     name: 'Serdar (Turkey)', 
-    handle: '@creepindeath', 
+    handle: '@serdartepeyurt', 
     image: 'https://pbs.twimg.com/profile_images/1429711711154618370/9-_ipahf_400x400.jpg', 
     linkUrl: 'https://twitter.com/serdartepeyurt' 
   },
@@ -93,5 +93,6 @@ const Home: NextPage = () => {
     </div>
   )
 }
+
 
 export default Home
