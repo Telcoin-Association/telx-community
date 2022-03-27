@@ -2,10 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import GuideLayout from '../../components/guide/guideLayout'
 
-import ArticleService from '../../services/article-service';
-const articleService = new ArticleService();
 
-const Page: NextPage = ( { articles, welcomeArticle } ) => {
+const Page: NextPage = () => {
   return (
     <div>
       <Head>
@@ -15,47 +13,13 @@ const Page: NextPage = ( { articles, welcomeArticle } ) => {
       </Head>
  
       <GuideLayout 
-        title={'Education Top'}
-        updated={'March 27, 2022'}
+        title={'Dynamic Title'}
+        updated={'March 28, 2022'}
         content={`Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.`}
       />
-  
-      {
-        // Lists article titles
-        articles.map((article, i) => ( <h2>{article.title}</h2> ))
-
-        // <div dangerouslySetInnerHTML={{ __html: welcomeArticle.rawHtml }}></div> line renders html content converted from markdown
-      }
-      
-      <hr />
-      <div dangerouslySetInnerHTML={{ __html: welcomeArticle.rawHtml }}></div>
-      
-      {/* <main className="page-temp">
-        <h1>Education</h1>
-      </main> */}
 
     </div>
   )
-}
-
-// This function gets called at build time on server-side.
-// It may be called again, on a serverless function, if
-// revalidation is enabled and a new request comes in
-export async function getStaticProps() {
-  
-  const articles = await articleService.fetchAll();
-  const welcomeArticle = await articleService.fetchSingle(5);
-  
-  return {
-    props: {
-      articles,
-      welcomeArticle
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10, // In seconds
-  }
 }
 
 export default Page

@@ -1,0 +1,16 @@
+.guide-bar {
+  background-color: $gray6;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  h4, svg {
+    color: $white;
+    fill: $white;
+  }
+
+  @media(min-width: $lg) {
+    display: none;
+  }
+}

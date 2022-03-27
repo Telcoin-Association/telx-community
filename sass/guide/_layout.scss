@@ -1,0 +1,21 @@
+.guide-layout {
+  .guide-layout-inner {
+    display: grid;
+
+    aside {
+      background-color: $white;
+      min-height: 100px;
+    }
+  
+    main {
+      background-color: $gray1;
+      min-height: 100px;
+    }
+  }
+
+  @media(min-width: $lg) {
+    .guide-layout-inner {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+}

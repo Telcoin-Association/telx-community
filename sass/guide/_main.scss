@@ -1,0 +1,14 @@
+.guide-main {
+  .guide-main-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 20px;
+    @media(min-width: $md) {
+      padding: 96px 40px;
+    }
+    @media(min-width: $lg) {
+      padding: 96px 0px;
+      min-height: 640px;
+    }
+  }
+}
