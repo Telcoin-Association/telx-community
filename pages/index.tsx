@@ -18,8 +18,8 @@ const cardPageButtons = [
     description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
   },
   { 
-    linkUrl: '/guides',
-    title: 'Guides',
+    linkUrl: '/education',
+    title: 'Education',
     icon: 'info-circle',
     description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
   },

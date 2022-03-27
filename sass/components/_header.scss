@@ -1,5 +1,5 @@
 #header-mobile {
-  background: $gradientTELx;  
+  background: $gray2;  
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
@@ -11,11 +11,11 @@
   top: 0;
   h4 {
     margin: 0;
-    color: $gray100;
+    color: $gray6;
     font-size: 24px;
   }
   svg * {
-    fill: $gray200;
+    fill: $gray6;
   }
 }
 

@@ -12,7 +12,7 @@ const Page: NextPage = () => {
       </Head>
 
       <main className="page-temp">
-        <h1>Guides</h1>
+        <h1>Education</h1>
       </main>
 
     </div>

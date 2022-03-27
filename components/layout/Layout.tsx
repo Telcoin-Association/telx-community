@@ -18,8 +18,8 @@ export const navigationItems = [
     newWindow: false
   },
   {
-    link: "/guides",
-    name: "Guides",
+    link: "/education",
+    name: "Education",
     external: false,
     newWindow: false
   },

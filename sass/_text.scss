@@ -33,7 +33,7 @@
 
 h1, h2, h3, h4, h5, h6 {
   @include textBold();
-  color: $gray700;
+  color: $gray7;
 }
 
 h1,
@@ -60,7 +60,7 @@ li {
 }
 
 p {
-  color: $gray500;
+  color: $gray5;
   margin: 0 0 12px;
   & > ul,
   & > ol {
