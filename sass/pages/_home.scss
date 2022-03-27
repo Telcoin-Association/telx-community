@@ -37,14 +37,18 @@
   .home-intro-and-twitter {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    .page-layout-centered {
+      margin: 96px 0;
+      padding: 0 40px;
+    }
     
     .home-intro {
       background-color: $gray1;
-      min-height: 800px;
-      padding: 40px;
+      min-height: 480px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0;
       .home-intro-inner {
         max-width: 640px;
 

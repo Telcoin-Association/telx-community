@@ -23,12 +23,6 @@ const cardPageButtons = [
     icon: 'info-circle',
     description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
   },
-  { 
-    linkUrl: '/media',
-    title: 'Media',
-    icon: 'camera',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
-  },
 ]
 
 const twitterMembers = [
@@ -50,12 +44,12 @@ const twitterMembers = [
     image: 'https://pbs.twimg.com/profile_images/1500611722763251715/NxStaKq1_400x400.jpg', 
     linkUrl: 'https://twitter.com/DJPressha' 
   },
-  { 
-    name: 'Josh Worley', 
-    handle: '@joshworley_io', 
-    image: 'https://pbs.twimg.com/profile_images/1503875418427994113/53nkYIMp_400x400.jpg',
-    linkUrl: 'https://twitter.com/joshworley_io'
-  },
+  // { 
+  //   name: 'Josh Worley', 
+  //   handle: '@joshworley_io', 
+  //   image: 'https://pbs.twimg.com/profile_images/1503875418427994113/53nkYIMp_400x400.jpg',
+  //   linkUrl: 'https://twitter.com/joshworley_io'
+  // },
 ]
 
 const Home: NextPage = () => {
@@ -75,25 +69,35 @@ const Home: NextPage = () => {
               <div className="home-intro">
                 <div className="home-intro-inner">
                   <h1>Welcome to the Community</h1>
-                  <p>TELx Community is created by volunteers. We come together to bring you educational materials on DeFi and TELx. Here you will find resources to help you start your DeFi journey, as well as a family of community members supporting each other. Get started by clicking on one of the links below. If you have any questions, don’t hesitate to reach out to us on Twitter.</p>
+                  <p>
+                  TELx Community was created and is managed by volunteers with diverse backgrounds, who’ve come together to bring you educational materials on Decentralized Finance (DeFi) specifically as they relate to Telcoin’s TELx and their suite of decentralized user-owned financial products. <br/>
+                  Here you’ll find resources to help you get started on your DeFi journey, analyze TELx’s suite of products, and tools to help you decide which pools/services are best for you.<br/>
+                  The #TELFAM  is a community of TELx users supporting each other to take control of their crypto assets and put them to work so they can essentially pay themselves, and take control of their financial independance. #COYT (Come On You Telcoin)<br/>
+                  Get started by clicking on one of the links below, or if you have any questions, don’t hesitate to reach out to us on Twitter.<br/>
+                  To learn more about Telcoin and TELx, please head to their main sites:<br/>
+                  https://telco.in/about-company<br/>
+                  https://telx.network<br/>
+                  Here you can stay up to date on all of Telcoin’s latest news releases:<br/>
+                  https://telco.in/newsroom
+                  </p>
 
-                  <div className="card-page-buttons">
+                  <div className="twitter-members">
                     {
-                      cardPageButtons.map((cpb, i) => {
-                        const { linkUrl, title, icon, description } = cpb;
-                        return (
-                          <div key={`${title}-${i}`}>
-                            <CardPageButton 
-                              linkUrl={linkUrl}
-                              title={title}
-                              icon={icon}
-                              description={description}
-                            />
-                          </div>
-                        )
-                      })
-                    }
-                  </div>
+                        twitterMembers.map((tm, i) => {
+                          const { linkUrl, name, handle, image } = tm;
+                          return (
+                            <div key={`${name}-${i}`}>
+                              <TwitterMember 
+                                linkUrl={linkUrl}
+                                name={name}
+                                handle={handle}
+                                image={image}
+                              />
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
                 </div>
               </div>  
             </div>
@@ -102,33 +106,6 @@ const Home: NextPage = () => {
           <div className="home-twitter">
             <h4>Twitter</h4>
           </div>  
-        </section>
-
-
-        <section>
-          <div className="page-layout-centered">
-            <div className="page-layout-centered-inner">
-              <h2>Made with 💙 by <a href="https://twitter.com/search?q=%23Telfam">#telfam</a> members</h2>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-              <div className="twitter-members">
-              {
-                  twitterMembers.map((tm, i) => {
-                    const { linkUrl, name, handle, image } = tm;
-                    return (
-                      <div key={`${name}-${i}`}>
-                        <TwitterMember 
-                          linkUrl={linkUrl}
-                          name={name}
-                          handle={handle}
-                          image={image}
-                        />
-                      </div>
-                    )
-                  })
-                }
-              </div>
-            </div>
-          </div>
         </section>
 
       </main>

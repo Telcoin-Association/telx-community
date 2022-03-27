@@ -23,12 +23,6 @@ export const navigationItems = [
     external: false,
     newWindow: false
   },
-  {
-    link: "/media",
-    name: "Media",
-    external: false,
-    newWindow: false
-  },
 ];
 
 interface LayoutProps {

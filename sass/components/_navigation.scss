@@ -154,6 +154,10 @@
 
       .nsi-logo-wrapper {
         padding: 0;
+
+        h1 {
+          color: $gray6;
+        }
       }
 
       .nsi-menu-items {
@@ -173,19 +177,19 @@
               color: $gray6;
               &:hover {
                 background-color: $white90;
-                color: $deepOceanBlue;
+                color: $communityBlue;
               }
             }
             &.telx-portal-link {
               .tw-icon {
                 top: 33%;
                 * {
-                  color: $deepOceanBlue;
+                  color: $communityBlue;
                 }
               }
               a {
                 background-color: $white;
-                color: $deepOceanBlue;
+                color: $communityBlue;
                 padding-left: 68px;
                 border-bottom: solid 1px $gray2;
               }
