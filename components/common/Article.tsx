@@ -17,7 +17,9 @@ export default function Article(props: ArticleProps) {
     <div className="article">
       <h1>{title}</h1>
       <h4>Updated {updatedAt}</h4>
-      <div dangerouslySetInnerHTML={{ __html: rawHtml }}></div>
+      {
+        rawHtml && <div dangerouslySetInnerHTML={{ __html: rawHtml }}></div>
+      }
     </div>
   )
 }
