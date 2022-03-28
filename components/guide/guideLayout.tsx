@@ -20,7 +20,6 @@ export interface GuideLayoutProps {
 
 export default function GuideLayout(props: GuideLayoutProps) {
   const { article, articles } = props;
-  const { createdAt, detail, id, locale, publishedAt, rawHtml, title, updatedAt  } = article;
   
   return (
     <div className="guide-layout">
@@ -30,9 +29,7 @@ export default function GuideLayout(props: GuideLayoutProps) {
           articles={articles}
         />
         <GuideMain 
-          title={title}
-          updated={updatedAt}
-          content={rawHtml}
+          article={article}
         />
       </div>
     </div>

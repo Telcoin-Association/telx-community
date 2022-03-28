@@ -22,7 +22,7 @@ export default function GuideNav(props: GuideNavProps) {
             return (
               <li key={i}>
                 <LinkItem 
-                  linkUrl={`/{id}`}
+                  linkUrl={`/education/${id}`}
                   linkText={title}
                   external={false}
                 />

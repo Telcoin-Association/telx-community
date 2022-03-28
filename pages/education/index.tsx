@@ -7,8 +7,6 @@ const articleService = new ArticleService();
 
 const Page: NextPage = ( { articles, welcomeArticle } ) => {
 
-  console.log('articles', articles);
-
   return (
     <div>
       <Head>
