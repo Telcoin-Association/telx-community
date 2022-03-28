@@ -2,17 +2,7 @@ import React from "react";
 import GuideBar from "./guideBar";
 import GuideNav from "./guideNav";
 import GuideMain from "./guideMain";
-
-export interface ArticleProps {
-  createdAt: string;
-  detail: string;
-  id: number;
-  locale: string;
-  publishedAt: string;
-  rawHtml: string;
-  title: string;
-  updatedAt: string;
-}
+import { ArticleProps } from "../common/Article";
 export interface GuideLayoutProps {
   article: ArticleProps;
   articles: Array<ArticleProps>
@@ -20,6 +10,8 @@ export interface GuideLayoutProps {
 
 export default function GuideLayout(props: GuideLayoutProps) {
   const { article, articles } = props;
+
+  console.log('article', article)
   
   return (
     <div className="guide-layout">

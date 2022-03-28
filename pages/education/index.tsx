@@ -4,9 +4,17 @@ import GuideLayout from '../../components/guide/guideLayout'
 
 import ArticleService from '../../services/article-service';
 const articleService = new ArticleService();
+import { ArticleProps } from "../../components/common/Article";
 
-const Page: NextPage = ( { articles, welcomeArticle } ) => {
+interface PageProps {
+  articles: Array<ArticleProps>;
+  welcomeArticle: ArticleProps;
+}
 
+
+export default function Page(props: PageProps) {
+  const { articles, welcomeArticle } = props;
+  console.log('articles', articles)
   return (
     <div>
       <Head>
@@ -43,5 +51,3 @@ export async function getStaticProps() {
     revalidate: 10, // In seconds
   }
 }
-
-export default Page

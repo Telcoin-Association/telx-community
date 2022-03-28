@@ -23,3 +23,13 @@ function processArticle(id, attributes) {
 export {
     processArticle
 }
+
+
+export const titleToSlug = (title) => {
+  return (title || "")
+    .toLowerCase()
+    .replace(/\s/g, "-")
+    .replace("/", "-")
+    .replace("?", "")
+    .replace(":", "");
+};

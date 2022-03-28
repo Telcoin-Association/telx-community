@@ -1,12 +1,38 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import GuideLayout from '../../components/guide/guideLayout'
+import { GetStaticPaths, GetStaticProps } from "next";
+import { titleToSlug } from '../../type-helpers';
 
 import ArticleService from '../../services/article-service';
 const articleService = new ArticleService();
+import { ArticleProps } from "../../components/common/Article";
 
+interface PageProps {
+  articles: Array<ArticleProps>;
+  welcomeArticle: ArticleProps;
+  params: {
+    slug: string;
+  }
+}
 
-const Page: NextPage = ( { articles, welcomeArticle } ) => {
+export default function Page(props: PageProps) {
+  const { articles, welcomeArticle, params } = props;
+  console.log('params', params)
+  const slug = params ? params.slug : '';
+
+  // set the default selected article to be the welcome article
+  let selectedArticle = welcomeArticle;
+  // get the selected article based off the slug
+  if (articles) {
+    articles.map( article => {
+      const variableArticleSlug = titleToSlug(article.title);
+      if ( variableArticleSlug === slug ) {
+        selectedArticle = article;
+      }
+    })
+  }
+
   return (
     <div>
       <Head>
@@ -16,7 +42,7 @@ const Page: NextPage = ( { articles, welcomeArticle } ) => {
       </Head>
  
       <GuideLayout 
-        article={welcomeArticle}
+        article={selectedArticle}
         articles={articles}
       />
 
@@ -24,14 +50,18 @@ const Page: NextPage = ( { articles, welcomeArticle } ) => {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
+  // this method instructs NextJS on which `/about/[slug]`
+  // URLs to statically generate.
+  const articles = await articleService.fetchAll();
+  const paths = articles.map((article: any) => ({
+    params: {
+      slug: titleToSlug(article.title),
+    },
+  }));
+  
   return {
-    paths: [
-      // String variant:
-      '/education/first-post',
-      // Object variant:
-      { params: { slug: 'second-post' } },
-    ],
+    paths: paths,
     fallback: true,
   }
 }
@@ -40,15 +70,16 @@ export async function getStaticPaths() {
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
-export async function getStaticProps() {
-  
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
   const articles = await articleService.fetchAll();
-  const welcomeArticle = await articleService.fetchSingle(5);
+  const welcomeArticle = await articleService.fetchSingle(1);
   
   return {
     props: {
       articles,
-      welcomeArticle
+      welcomeArticle,
+      params
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
@@ -56,5 +87,3 @@ export async function getStaticProps() {
     revalidate: 10, // In seconds
   }
 }
-
-export default Page
