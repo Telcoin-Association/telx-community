@@ -10,19 +10,27 @@ import { ArticleProps } from "../../components/common/Article";
 
 interface PageProps {
   articles: Array<ArticleProps>;
-  welcomeArticle: ArticleProps;
   params: {
     slug: string;
   }
 }
 
 export default function Page(props: PageProps) {
-  const { articles, welcomeArticle, params } = props;
-  console.log('params', params)
+  const { articles, params } = props;
   const slug = params ? params.slug : '';
 
   // set the default selected article to be the welcome article
-  let selectedArticle = welcomeArticle;
+  let selectedArticle;
+  selectedArticle = {
+    createdAt: '',
+    detail: '',
+    id: '',
+    locale: '',
+    publishedAt: '',
+    rawHtml: '',
+    title: '',
+    updatedAt: ''
+  };
   // get the selected article based off the slug
   if (articles) {
     articles.map( article => {
@@ -73,12 +81,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const articles = await articleService.fetchAll();
-  const welcomeArticle = await articleService.fetchSingle(1);
   
   return {
     props: {
       articles,
-      welcomeArticle,
       params
     },
     // Next.js will attempt to re-generate the page:

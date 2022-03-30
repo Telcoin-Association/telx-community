@@ -34,9 +34,6 @@ const Socials = (props: SocialsProps) => {
               break;
           }
 
-          console.log('link', link)
-          console.log('lowecaseName', lowercaseName)
-
           if (Icon !== undefined) {
             return (
               <li key={lowercaseName}>

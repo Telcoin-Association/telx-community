@@ -2,7 +2,7 @@ import React from "react";
 export interface ArticleProps {
   createdAt?: string;
   detail?: string;
-  id?: number;
+  id?: string;
   locale?: string;
   publishedAt?: string;
   rawHtml?: string;

@@ -10,8 +10,6 @@ export interface GuideLayoutProps {
 
 export default function GuideLayout(props: GuideLayoutProps) {
   const { article, articles } = props;
-
-  console.log('article', article)
   
   return (
     <div className="guide-layout">

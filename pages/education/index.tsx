@@ -14,7 +14,7 @@ interface PageProps {
 
 export default function Page(props: PageProps) {
   const { articles, welcomeArticle } = props;
-  console.log('articles', articles)
+  
   return (
     <div>
       <Head>

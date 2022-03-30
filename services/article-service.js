@@ -22,6 +22,7 @@ export default class ArticleService extends BaseService {
     async fetchAll() {
         const rawData = await super.fetchAll();
         const result = rawData.map(a => processArticle(a.id, a.attributes));
-        return result;
+        const orderedResult = result.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0))
+        return orderedResult;
     }
 }
