@@ -5,13 +5,14 @@ function decodeHtml(html) {
 }
 
 function processArticle(id, attributes) {
-    const rawHtml = decodeHtml(md().render(attributes.Detail));
+    const rawHtml = decodeHtml(md().render(attributes.detail));
 
     console.log(rawHtml);
     return {
         id,
-        title: attributes.Title,
-        detail: attributes.Detail,
+        order: attributes.order,
+        title: attributes.title,
+        detail: attributes.detail,
         createdAt: attributes.createdAt,
         updatedAt: attributes.updatedAt,
         publishedAt: attributes.publishedAt,
