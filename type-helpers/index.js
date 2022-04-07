@@ -17,6 +17,7 @@ function processArticle(id, attributes) {
         updatedAt: attributes.updatedAt,
         publishedAt: attributes.publishedAt,
         locale: attributes.locale,
+        category: attributes.category,
         rawHtml
     }
 }

@@ -8,6 +8,7 @@ export interface ArticleProps {
   rawHtml?: string;
   title?: string;
   updatedAt?: string;
+  category?: string;
 }
 
 export default function Article(props: ArticleProps) {
