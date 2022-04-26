@@ -1,27 +1,27 @@
 .rich-text-to-html {
-  img {
-    max-width: 100%;
-  }
-  figure {
-    margin: 0;
-    margin: 40px 0;
-    figcaption {
-      margin: 12px 0 0;
-      color: rgba(20, 17, 15, 0.3);
-      font-size: 12px;
-      @media(min-width: $lg) {
-        font-size: 14px;
-      }
+    img {
+        max-width: 100%;
     }
-  }
+    figure {
+        margin: 0;
+        margin: 40px 0;
+        figcaption {
+            margin: 12px 0 0;
+            color: rgba(20, 17, 15, 0.3);
+            font-size: 12px;
+            @media (min-width: $lg) {
+                font-size: 14px;
+            }
+        }
+    }
 }
 
 .page-temp {
-  min-height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1 {
-    font-size: 48px;
-  }
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        font-size: 48px;
+    }
 }
