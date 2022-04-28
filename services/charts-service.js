@@ -61,6 +61,7 @@ export default class ChartsService {
             "query": "query GetResult($query_id: Int!, $parameters: [Parameter!]) {\\n  get_result(query_id: $query_id, parameters: $parameters) {\\n    job_id\\n    result_id\\n    __typename\\n  }\\n}\\n"\n
         }`;
 
+
         const result = await this.makeDuneServiceCall(embedUrl, body);
 
         if (!result) {
@@ -75,8 +76,8 @@ export default class ChartsService {
         return result.get_result.result_id;
     }
 
-    async getChartData(embedUrl) {
-        const resultId = await this.getResultId(embedUrl);
+    async getChartData(opts) {
+        const resultId = await this.getResultId(opts.embed_url);
 
         if (!resultId) {
             return null;
@@ -90,22 +91,25 @@ export default class ChartsService {
             "query": "query FindResultDataByResult($result_id: uuid!) {\n  query_results(where: {id: {_eq: $result_id}}) {\n    id\n    job_id\n    error\n    runtime\n    generated_at\n    columns\n    __typename\n  }\n  get_result_by_result_id(args: {want_result_id: $result_id}) {\n    data\n    __typename\n  }\n}\n"\
         }`;
 
-        const result = await this.makeDuneServiceCall(embedUrl, body);
+        const result = await this.makeDuneServiceCall(opts.embed_url, body);
+
+        if(opts.embed_url === "https://dune.com/embeds/649659/1207521/9ce2bf8c-8c9a-4e81-a541-b1058f6e394e"){
+            console.log("GET RESULT ID => ", result);
+        }
 
         if (result.query_results.length === 0) {
             console.error("NO DATA RESIDES IN THE RESULT");
             return null;
         }
 
-        return processChartData(result);
+        return processChartData(result, opts);
     }
 
     async getChart(chart) {
-        const embedUrl = chart.payload.embed_url;
-        let data = getFromChartCache(embedUrl);
+        let data = getFromChartCache(chart.payload.embed_url);
         if (!data) {
-            data = await this.getChartData(embedUrl);
-            setToChartCache(embedUrl, { title: chart.title, description: chart.description || null, ...data });
+            data = await this.getChartData(chart.payload);
+            setToChartCache(chart.payload.embed_url, { title: chart.title, description: chart.description || null, ...data });
         }
 
         return data;

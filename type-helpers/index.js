@@ -37,9 +37,9 @@ function processArticle(id, attributes) {
     };
 }
 
-function processChartData(data) {
-    const time_field_key = "day";
-    const value1_key = "total_usd";
+function processChartData(data, opts) {
+    const time_field_key = opts.time_field_key;
+    const value1_key = opts.value1_key;
 
     const columns = data.query_results[0].columns;
     const generatedAt = data.query_results[0].generated_at;

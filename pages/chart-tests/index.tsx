@@ -14,10 +14,12 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps) {
-    const { chartDatas } = props;
+    const { chartDatas, title, description } = props;
 
     return (
         <div>
+            <h1>{title}</h1>
+            <span>{description}</span>
             {chartDatas.map((object: any, i: any) => (
                 <div key={i}>
                     <Chart {...object} key={i} />
