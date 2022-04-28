@@ -93,16 +93,14 @@ export default class ChartsService {
 
         const result = await this.makeDuneServiceCall(opts.embed_url, body);
 
-        if(opts.embed_url === "https://dune.com/embeds/649659/1207521/9ce2bf8c-8c9a-4e81-a541-b1058f6e394e"){
-            console.log("GET RESULT ID => ", result);
-        }
-
         if (result.query_results.length === 0) {
             console.error("NO DATA RESIDES IN THE RESULT");
             return null;
         }
 
-        return processChartData(result, opts);
+        const response = processChartData(result, opts);
+
+        return response;
     }
 
     async getChart(chart) {

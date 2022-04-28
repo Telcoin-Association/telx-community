@@ -20,6 +20,7 @@ export default function Chart(props: ChartProps) {
         return {
             x: new Date(c.x),
             y: c.y,
+            label: c.label
         };
     });
 
@@ -31,6 +32,8 @@ export default function Chart(props: ChartProps) {
         if (t / 1000000 >= 1) {
             return `$${(t / 1000000).toFixed(2)}M`;
         } else if (t / 100000 >= 1) {
+            return `$${(t / 1000).toFixed(2)}k`;
+        } else if (t / 10000 >= 1) {
             return `$${(t / 1000).toFixed(2)}k`;
         }
 
@@ -54,7 +57,7 @@ export default function Chart(props: ChartProps) {
                             axisLabel: { fontSize: 10, padding: 30 },
                             grid: { stroke: ({ tick }) => (tick > 0.5 ? "rgba(255, 0, 0, 0.4)" : "grey") },
                             ticks: { stroke: "grey", size: 2 },
-                            tickLabels: { fontSize: 9, padding: 0, fontWeight: 800, angle: 0 },
+                            tickLabels: { fontSize: 9, padding: 0, fontWeight: 600, angle: 0 },
                         }}
                         tickFormat={(t) => dateAxisTickFormatter(t)}
                     />
@@ -70,7 +73,7 @@ export default function Chart(props: ChartProps) {
                             axisLabel: { fontSize: 10, padding: 30 },
                             grid: { stroke: ({ tick }) => (tick > 0.5 ? "rgba(255, 0, 0, 0.4)" : "grey") },
                             ticks: { stroke: "grey", size: 2 },
-                            tickLabels: { fontSize: 9, padding: 3, fontWeight: 800 },
+                            tickLabels: { fontSize: 9, padding: 3, fontWeight: 600 },
                         }}
                         tickFormat={(t) => moneyAxisTickFormatter(t)}
                     />

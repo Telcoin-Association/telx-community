@@ -37,6 +37,18 @@ function processArticle(id, attributes) {
     };
 }
 
+function buildTooltipData(data, opts) {
+    const time_field_key = opts.time_field_key;
+    const value1_key = opts.value1_key;
+
+    const valueLabel = opts.value1_label;
+
+    const title = new Date(data[time_field_key]).toDateString();
+    const value = data[value1_key];
+
+    return `${title} \n\n ${valueLabel}: ${value}`;
+}
+
 function processChartData(data, opts) {
     const time_field_key = opts.time_field_key;
     const value1_key = opts.value1_key;
@@ -45,7 +57,7 @@ function processChartData(data, opts) {
     const generatedAt = data.query_results[0].generated_at;
     const totalData = data.get_result_by_result_id.map((d) => d.data);
     const chartData = totalData.map((c) => {
-        return { x: new Date(c[time_field_key]).getTime(), y: c[value1_key] };
+        return { x: new Date(c[time_field_key]).getTime(), y: c[value1_key], label: buildTooltipData(c, opts) };
     });
 
     chartData.sort((a, b) => {
