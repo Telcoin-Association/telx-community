@@ -20,7 +20,7 @@ export default function Chart(props: ChartProps) {
         return {
             x: new Date(c.x),
             y: c.y,
-            label: c.label
+            label: c.label,
         };
     });
 
@@ -40,10 +40,14 @@ export default function Chart(props: ChartProps) {
         return t;
     };
 
+    const gray3 = "#DBDDE6";
+
     return (
         <div className="chart-container" style={{ display: "flex", flexWrap: "wrap" }}>
             <div className="chart">
-                <VictoryChart height={320} width={640}>
+
+                <VictoryChart>
+                    
                     <VictoryLabel text={title} textAnchor="middle" verticalAnchor="middle" dx={320} dy={20} />
 
                     {/* X Axis */}
@@ -53,10 +57,9 @@ export default function Chart(props: ChartProps) {
                         theme={VictoryTheme.material}
                         standalone={false}
                         style={{
-                            axis: { stroke: "#756f6a" },
+                            axis: { stroke: gray3 },
                             axisLabel: { fontSize: 10, padding: 30 },
-                            grid: { stroke: ({ tick }) => (tick > 0.5 ? "rgba(255, 0, 0, 0.4)" : "grey") },
-                            ticks: { stroke: "grey", size: 2 },
+                            grid: {  stroke: gray3 },
                             tickLabels: { fontSize: 9, padding: 0, fontWeight: 600, angle: 0 },
                         }}
                         tickFormat={(t) => dateAxisTickFormatter(t)}
@@ -69,16 +72,20 @@ export default function Chart(props: ChartProps) {
                         theme={VictoryTheme.material}
                         standalone={false}
                         style={{
-                            axis: { stroke: "#756f6a" },
+                            axis: { stroke: gray3 },
                             axisLabel: { fontSize: 10, padding: 30 },
-                            grid: { stroke: ({ tick }) => (tick > 0.5 ? "rgba(255, 0, 0, 0.4)" : "grey") },
-                            ticks: { stroke: "grey", size: 2 },
+                            grid: {  stroke: gray3 },
                             tickLabels: { fontSize: 9, padding: 3, fontWeight: 600 },
                         }}
                         tickFormat={(t) => moneyAxisTickFormatter(t)}
                     />
 
-                    <VictoryBar theme={VictoryTheme.material} style={{ data: { fill: "red" } }} data={chartData} labelComponent={<VictoryTooltip />} />
+                    <VictoryBar 
+                      theme={VictoryTheme.grayscale} 
+                      style={{ data: { fill: "rgba(20, 200, 255, 0.6)" } }} 
+                      data={chartData} 
+                      labelComponent={<VictoryTooltip />} 
+                    />
                 </VictoryChart>
             </div>
         </div>

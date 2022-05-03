@@ -1,0 +1,30 @@
+#page-analytics {
+  max-width: 1200px;
+  margin: 0 auto;
+  // margin: ;
+}
+
+.chart-container {
+  .chart {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    .chart-title {
+      text {
+        tspan {
+          fill: $gray10 !important; 
+        }
+      }
+    }
+
+    text {
+      tspan {
+        font-family: hero-new, sans-serif !important;
+        font-weight: 700;
+        fill: $gray7 !important;
+        font-size: 6px !important;
+      }
+    }
+  }
+}
