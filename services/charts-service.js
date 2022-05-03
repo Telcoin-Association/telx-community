@@ -107,7 +107,11 @@ export default class ChartsService {
         let data = getFromChartCache(chart.payload.embed_url);
         if (!data) {
             data = await this.getChartData(chart.payload);
-            setToChartCache(chart.payload.embed_url, { title: chart.title, description: chart.description || null, ...data });
+            setToChartCache(chart.payload.embed_url, { 
+              title: chart.title, 
+              description: chart.description || null,
+              category: chart.category || null,
+              ...data });
         }
 
         return data;
