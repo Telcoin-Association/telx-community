@@ -21,7 +21,7 @@ export default function Page(props: PageProps) {
 
     return (
       <div id="page-analytics">
-        <AnalyticsLayout charts={chartDatas}/>
+        <AnalyticsLayout categories={['cat1']} charts={chartDatas}/>
         <h1>{title}</h1>
         <span>{description}</span>
           {chartDatas.map((object: any, i: any) => (
