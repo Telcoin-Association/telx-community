@@ -16,7 +16,7 @@ export default function Chart(props: ChartProps) {
     let { embedUrl, title, generatedAt, chartData } = props;
 
     // Re-map the chart data as date
-    chartData = chartData.map((c) => {
+    chartData = chartData.map((c:any) => {
         return {
             x: new Date(c.x),
             y: c.y,
@@ -24,11 +24,11 @@ export default function Chart(props: ChartProps) {
         };
     });
 
-    const dateAxisTickFormatter = function (t) {
+    const dateAxisTickFormatter = function (t:any) {
         return new Date(t).toDateString();
     };
 
-    const moneyAxisTickFormatter = function (t) {
+    const moneyAxisTickFormatter = function (t:number) {
         if (t / 1000000 >= 1) {
             return `$${(t / 1000000).toFixed(2)}M`;
         } else if (t / 100000 >= 1) {
