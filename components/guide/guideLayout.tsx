@@ -17,6 +17,7 @@ export default function GuideLayout(props: GuideLayoutProps) {
       <GuideBar />
       <div className="guide-layout-inner">
         <GuideNav 
+          selectedArticle={article}
           articles={articles}
         />
         <GuideMain 

@@ -12,6 +12,11 @@
           line-height: 1.2;
           margin: 0 0 16px;
         }
+        a {
+          &.active {
+            color: $white;
+          }
+        }
       }
     }
   }

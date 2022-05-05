@@ -1,16 +1,19 @@
 import React from "react";
 import LinkItem from "../common/LinkItem";
-import ArticleProps from "./guideLayout";
 import { titleToSlug } from "../../type-helpers";
+import { ArticleProps } from "../common/Article";
 
 export interface GuideNavProps {
   articles?: Array<any>
+  selectedArticle?: ArticleProps;
 }
 
 
 
 export default function GuideNav(props: GuideNavProps) {
-  const { articles } = props;
+  const { articles, selectedArticle } = props;
+
+  const selectedArticleTitle = selectedArticle && selectedArticle.title;
 
   const categories: string[] = [];
   if (articles) {
@@ -26,7 +29,6 @@ export default function GuideNav(props: GuideNavProps) {
 
   return (
     <aside className="guide-nav">
-
       <ul>
         {
           // map through categories
@@ -54,12 +56,14 @@ export default function GuideNav(props: GuideNavProps) {
                 {
                   categoryArticles.map((article, i) => {
                     const { title, slugTitle } = article;
+                    const selectedArticle = title === selectedArticleTitle ? true : false;
                     return (
                       <li key={`${article.title}-${i}`}>
                         <LinkItem 
                           linkUrl={`/education/${slugTitle}`}
                           linkText={title}
                           external={false}
+                          className={selectedArticle ? 'active' : 'inactive'}
                         />
                       </li>
                     )

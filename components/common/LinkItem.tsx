@@ -10,15 +10,16 @@ export interface LinkItemProps {
   newWindow?: boolean;
   onClick?: any;
   icon?: string;
+  className?: string;
 }
 
 export default function LinkItem(props: LinkItemProps) {
-  const { external, linkText, linkUrl, newWindow, onClick, icon } = props;
+  const { external, linkText, linkUrl, newWindow, onClick, icon, className } = props;
 
   const internalButton = (
     <span>
       <Link href={linkUrl}>
-        <a onClick={onClick}>
+        <a onClick={onClick} className={className}>
           { icon === 'chevron-left' && <ChevronLeft />}
           {linkText}
           { icon === 'chevron-right' && <ChevronRight />}
