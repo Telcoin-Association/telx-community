@@ -1,21 +1,26 @@
 .guide-layout {
+  background: $gradientNightHorizontal;
   .guide-layout-inner {
     display: grid;
+    padding: 20px;
+
+    @media(min-width: $md) {
+      padding: 40px;
+    }
+
+    @media(min-width: $lg) {
+      padding: 80px;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 80px;
+    }
+    
 
     aside {
-      background-color: $white;
       min-height: 100px;
     }
   
     main {
-      background-color: $gray1;
       min-height: 100px;
-    }
-  }
-
-  @media(min-width: $lg) {
-    .guide-layout-inner {
-      grid-template-columns: 1fr 3fr;
     }
   }
 }

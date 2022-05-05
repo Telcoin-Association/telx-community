@@ -26,7 +26,6 @@ export default function GuideNav(props: GuideNavProps) {
 
   return (
     <aside className="guide-nav">
-      <h2>Education</h2>
 
       <ul>
         {
@@ -48,7 +47,7 @@ export default function GuideNav(props: GuideNavProps) {
             }
             // return top level category
             return (
-              <li key={`${category}-${i}`}>
+              <li className="guide-nav-category" key={`${category}-${i}`}>
                 <h3>{category}</h3>
                 {/* return category's articles */}
                 <ul>
