@@ -37,7 +37,7 @@ export default function GuidePrevNext(props: GuidePrevNextProps) {
       <div className="prev-container">
         { prevArticle && (
           <LinkItem 
-            linkUrl={titleToSlug(prevArticle.title)}
+            linkUrl={`/education/${titleToSlug(prevArticle.title)}`}
             linkText={prevArticle.title}
             external={false}
             newWindow={false}
@@ -48,7 +48,7 @@ export default function GuidePrevNext(props: GuidePrevNextProps) {
       <div className="next-container">
         { nextArticle && (
           <LinkItem 
-            linkUrl={titleToSlug(nextArticle.title)}
+            linkUrl={`/education/${titleToSlug(nextArticle.title)}`}
             linkText={nextArticle.title}
             external={false}
             newWindow={false}
