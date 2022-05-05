@@ -32,7 +32,7 @@ export default function GuidePrevNext(props: GuidePrevNextProps) {
   return (
     <div className="prev-next guide-prev-next">
       <div className="prev-container">
-        { prevArticle && (
+        { prevArticle.title && (
           <LinkItem 
             linkUrl={`/education/${titleToSlug(prevArticle.title)}`}
             linkText={prevArticle.title}
@@ -43,7 +43,7 @@ export default function GuidePrevNext(props: GuidePrevNextProps) {
         )}
       </div>
       <div className="next-container">
-        { nextArticle && (
+        { nextArticle.title && (
           <LinkItem 
             linkUrl={`/education/${titleToSlug(nextArticle.title)}`}
             linkText={nextArticle.title}

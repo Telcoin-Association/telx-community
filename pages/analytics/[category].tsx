@@ -18,8 +18,6 @@ interface PageProps {
 export default function Page(props: PageProps) {
     const { chartDatas, title, description } = props;
 
-    console.log('chart data', chartDatas)
-
     return (
       <div id="page-analytics">
         <AnalyticsLayout charts={chartDatas}/>

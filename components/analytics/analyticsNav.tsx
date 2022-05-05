@@ -24,8 +24,6 @@ export default function AnalyticsNav(props: AnalyticsNavProps) {
     })
   }
 
-  console.log('categories', categories);
-
 
   return (
     <aside className="analytics-nav">

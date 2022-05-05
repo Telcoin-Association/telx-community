@@ -16,8 +16,6 @@ export interface ArticleProps {
 export default function Article(props: ArticleProps) {
   const { createdAt, detail, id, locale, publishedAt, rawHtml, title, updatedAt, youtube  } = props;
 
-  console.log('props', props)
-
   return (
     <div className="article">
       <h1>{title}</h1>

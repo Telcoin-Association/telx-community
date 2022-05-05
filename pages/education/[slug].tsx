@@ -42,7 +42,6 @@ export default function Page(props: PageProps) {
     })
   }
 
-  console.log('selected article', selectedArticle)
 
   return (
     <div>

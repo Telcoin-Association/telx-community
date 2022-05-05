@@ -16,8 +16,6 @@ interface PageProps {
 export default function Page(props: PageProps) {
     const { chartDatas, title, description } = props;
 
-    console.log('chart data', chartDatas)
-
     return (
       <div>
         <h1>{title}</h1>
