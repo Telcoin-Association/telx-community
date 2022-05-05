@@ -9,9 +9,15 @@
     }
 
     @media(min-width: $lg) {
-      padding: 80px;
+      padding: 64px;
       grid-template-columns: 1fr 2fr;
       grid-gap: 80px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @media(min-width: $xxl) {
+      padding: 64px 0;
     }
     
 

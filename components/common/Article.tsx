@@ -21,7 +21,7 @@ export default function Article(props: ArticleProps) {
   return (
     <div className="article">
       <h1>{title}</h1>
-      <h4>Updated {updatedAt}</h4>
+      {/* <h4>Updated {updatedAt}</h4> */}
 
       {
         youtube && (
