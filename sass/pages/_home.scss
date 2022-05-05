@@ -1,9 +1,32 @@
-.home-intro-and-twitter {
-  background-color: $gray3;
 
-  .page-layout-centered {
-    background-color: $gray1;
+body {
+  background-color: $gray10;
+}
+
+#page-home {
+  .page-title {
+    @media(min-width: $md) {
+      padding: 32px;
+    }
+    @media(min-width: $lg) {
+      padding: 40px;
+    }
+    h1 {
+      @media(min-width: $md) {
+        font-size: 24px;
+      }
+      @media(min-width: $lg) {
+        font-size: 36px;
+      }
+    }
   }
+}
+
+.home-intro-and-twitter {
+  .page-layout-centered {
+    background: $gradientNightVertical;
+  }
+
   .home-intro {
     padding-top: 64px;
     .home-intro-inner {
@@ -52,7 +75,6 @@
     }
     
     .home-intro {
-      background-color: $gray1;
       min-height: 480px;
       display: flex;
       align-items: center;

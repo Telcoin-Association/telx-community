@@ -12,12 +12,15 @@ interface PageProps {
     chartDatas: Array<object>;
     title: String;
     description: String;
+    analyticsPageData: any;
 }
 
 export default function Page(props: PageProps) {
-    const { chartDatas, title, description } = props;
+    const { chartDatas, title, description, analyticsPageData } = props;
 
     console.log('chart data', chartDatas)
+
+    console.log('analyticsPageData', analyticsPageData)
 
     return (
       <div id="page-analytics">
@@ -67,6 +70,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             title: analyticsPageData.title,
             description: analyticsPageData.description,
             chartDatas,
+            analyticsPageData: analyticsPageData,
         },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in

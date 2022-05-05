@@ -41,14 +41,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main id="page-home" className="page">
+
+        <div className="page-title">
+          <h1>Commuity-led Education and Analytics for TELx</h1>
+        </div>
 
         <section className="home-intro-and-twitter">
           <div className="page-layout-centered">
             <div className="page-layout-centered-inner">
               <div className="home-intro">
                 <div className="home-intro-inner">
-                  <h1>Welcome to the Community</h1>
                   <p>
                   TELx Community was created and is managed by volunteers with diverse backgrounds, who’ve come together to bring you educational materials on Decentralized Finance (DeFi) specifically as they relate to Telcoin’s TELx and their suite of decentralized user-owned financial products. <br/>
                   Here you’ll find resources to help you get started on your DeFi journey, analyze TELx’s suite of products, and tools to help you decide which pools/services are best for you.<br/>

@@ -1,6 +1,7 @@
-import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { titleToSlug } from '../../type-helpers';
 
 import SingleTypeService from "../../services/single-type-service";
 import ChartsService from "../../services/charts-service";
@@ -21,7 +22,7 @@ export default function Page(props: PageProps) {
 
     return (
       <div id="page-analytics">
-        <AnalyticsLayout categories={['cat1']} charts={chartDatas}/>
+        <AnalyticsLayout charts={chartDatas}/>
         <h1>{title}</h1>
         <span>{description}</span>
           {chartDatas.map((object: any, i: any) => (
@@ -32,6 +33,43 @@ export default function Page(props: PageProps) {
       </div>
     );
 }
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // this method instructs NextJS on which `/about/[slug]`
+  // URLs to statically generate.
+  
+  const analyticsPageData = await singleTypeService.fetchSingleType("analytics-page");
+  const chartDatas = analyticsPageData.charts;
+
+  const paths = chartDatas.map((chart: any) => ({
+    params: {
+      slug: titleToSlug(chart.category),
+    },
+  }));
+  
+  
+  // const chartDatas: Array<object> = [];
+  // const chartDataPromises: Array<Promise<any>> = [];
+  // analyticsPageData.charts.forEach((chart: any) => {
+  //   chartDataPromises.push(
+  //     new Promise(async (resolve) => {
+  //       const result = await chartService.getChart(chart);
+  //       chartDatas.push(result);
+  //       resolve(undefined);
+  //     })
+  //   );
+  // });
+  // await Promise.all(chartDataPromises);
+
+
+  return {
+    paths: paths,
+    fallback: true,
+  }
+}
+
+
 
 const chartService = new ChartsService();
 const singleTypeService = new SingleTypeService();

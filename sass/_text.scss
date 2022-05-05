@@ -16,6 +16,7 @@
   font-style: normal;
   font-size: 16px;
   line-height: 1.4;
+  color: $gray3;
 }
 
 @mixin textMedium {
@@ -26,14 +27,15 @@
 
 @mixin textBold {
   font-family: hero-new, sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   font-style: normal;
+  color: $white;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
   @include textBold();
-  color: $gray10;
+  color: $white;
 }
 
 h1,
@@ -60,7 +62,6 @@ li {
 }
 
 p {
-  color: $gray7;
   margin: 0 0 12px;
   & > ul,
   & > ol {

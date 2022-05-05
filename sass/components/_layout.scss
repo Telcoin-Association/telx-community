@@ -1,10 +1,10 @@
-#page-content {
+.page {
   margin-top: 64px;
 }
 
 @media(min-width: $lg) {
-  #page-content {
-    margin-top: 0;
+  .page {
+    margin-top: 80px;
   }
 }
 

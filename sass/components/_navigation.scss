@@ -1,6 +1,10 @@
 #navigation-desktop {
   display: none !important;
   color: $gray1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
   a {
     color: $gray2;
   }
@@ -34,7 +38,7 @@
 #navigation-shared-inner {
   height: 100%;
   .navigation-shared-inner-skrim {
-    background: $gray9;
+    background: $gradientNightHorizontal;
     padding: 40px 0;
     height: 100%;
     .nsi-logo-wrapper {
@@ -65,13 +69,13 @@
       margin: 0;
       @include textBold();
       position: relative;
-      background: $gray5;
       a {
         color: $white;
         font-size: 16px;
         padding: 20px 40px;
         border-top: solid 1px $gray2;
         display: block;
+        text-transform: uppercase;
         &:hover {
           color: $purple;
         }
@@ -132,7 +136,6 @@
   #navigation-desktop {
     display: block !important;
     .navigation-shared-inner-skrim {
-      background-color: $gray2;
       padding: 0 0 0 40px;
       display: flex;
       justify-content: space-between;
@@ -156,7 +159,7 @@
         padding: 0;
 
         h1 {
-          color: $gray6;
+          color: $white;
         }
       }
 
@@ -173,34 +176,32 @@
               color: $white;
               padding: 30px 32px;
               height: 80px;
-              background-color: $gray2;
-              color: $gray6;
+              color: $communityBlue;
               &:hover {
-                background-color: $white90;
-                color: $communityBlue;
+                color: $white;
+                background-color: $gray11;
               }
             }
             &.telx-portal-link {
               .tw-icon {
                 top: 33%;
                 * {
-                  color: $communityBlue;
+                  color: $white;
                 }
               }
               a {
-                background-color: $white;
-                color: $communityBlue;
+                color: $white;
                 padding-left: 68px;
-                border-bottom: solid 1px $gray2;
               }
               &:hover {
                 .tw-icon {
                   * {
-                    color: $purple;
+                    color: $telcoinBlue;
                   }
                 }
                 a {
-                  color: $purple;
+                  background: $white;
+                  color: $telcoinBlue;
                 }
               }
             }
