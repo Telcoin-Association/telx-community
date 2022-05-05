@@ -9,7 +9,7 @@ export default function TwitterTimeline() {
         screenName: "telxcommunity",
       }}
       options={{
-        height: 860,
+        height: 720,
       }}
       renderError={() => (
         <p>
