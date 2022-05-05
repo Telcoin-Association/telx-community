@@ -5,7 +5,7 @@ import { ChevronRight } from "@transferwise/icons";
 
 export interface LinkItemProps {
   linkUrl: string;
-  linkText: string;
+  linkText?: string;
   external: boolean;
   newWindow?: boolean;
   onClick?: any;

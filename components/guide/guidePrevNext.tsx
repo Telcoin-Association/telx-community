@@ -12,12 +12,12 @@ export interface GuidePrevNextProps {
 export default function GuidePrevNext(props: GuidePrevNextProps) {
 
   const { article, articles } = props;
-  const { order } = article;
+  const order = article && article.order;
 
-  const prevOrder = order - 1;
-  const nextOrder = order + 1;
-  let prevArticle;
-  let nextArticle;
+  const prevOrder = order && order - 1;
+  const nextOrder = order && order + 1;
+  let prevArticle:ArticleProps = {};
+  let nextArticle:ArticleProps = {};
 
   articles && articles.map((article, i) => {
     const thisArticleOrder = article.order;
@@ -28,9 +28,6 @@ export default function GuidePrevNext(props: GuidePrevNextProps) {
       nextArticle = article;
     }
   });
-
-  console.log('prev article', prevArticle)
-  console.log('next article', nextArticle)
   
   return (
     <div className="prev-next guide-prev-next">
