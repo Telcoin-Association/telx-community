@@ -27,6 +27,7 @@ function processArticle(id, attributes) {
         id,
         order: attributes.order,
         title: attributes.title,
+        youtube: attributes.youtube,
         detail: attributes.detail,
         createdAt: attributes.createdAt,
         updatedAt: attributes.updatedAt,

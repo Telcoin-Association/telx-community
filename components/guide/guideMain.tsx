@@ -23,6 +23,7 @@ export default function GuideMain(props: GuideMainProps) {
   const rawHtml = article ? article.rawHtml : '';
   const title = article ? article.title : '';
   const updatedAt = article ? article.updatedAt : '';
+  const youtube = article ? article.youtube : '';
 
   return (
     <main className="guide-main">
@@ -36,6 +37,7 @@ export default function GuideMain(props: GuideMainProps) {
           rawHtml={rawHtml}
           title={title}
           updatedAt={updatedAt}
+          youtube={youtube}
         />
       </div>
       <GuidePrevNext

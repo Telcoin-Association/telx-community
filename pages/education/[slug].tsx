@@ -29,7 +29,8 @@ export default function Page(props: PageProps) {
     publishedAt: '',
     rawHtml: '',
     title: '',
-    updatedAt: ''
+    updatedAt: '',
+    youtube: ''
   };
   // get the selected article based off the slug
   if (articles) {
@@ -40,6 +41,8 @@ export default function Page(props: PageProps) {
       }
     })
   }
+
+  console.log('selected article', selectedArticle)
 
   return (
     <div>
