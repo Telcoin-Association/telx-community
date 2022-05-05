@@ -1,0 +1,38 @@
+.prev-next {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-gap: 20px;
+  margin: 20px auto 0;
+  max-width: 920px;
+
+  @media(min-width: $md) {
+    grid-gap: 32px;
+    margin: 32px auto 0;
+  }
+
+  .prev-container,
+  .next-container {
+    a {
+      width: 100%;
+      background: rgba(33, 36, 49, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 12px;
+      text-align: center;
+      .tw-icon {
+        display: flex;
+        color: $communityBlue;
+        margin: 0 6px;
+      }
+
+      &:hover {
+        background: $gray12;
+        color: $white;
+        .tw-icon { 
+          color: $white;
+        }
+      }
+    }
+  }
+}

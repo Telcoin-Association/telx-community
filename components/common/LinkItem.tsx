@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import { ChevronLeft } from "@transferwise/icons";
+import { ChevronRight } from "@transferwise/icons";
 
 export interface LinkItemProps {
   linkUrl: string;
@@ -7,15 +9,20 @@ export interface LinkItemProps {
   external: boolean;
   newWindow?: boolean;
   onClick?: any;
+  icon?: string;
 }
 
 export default function LinkItem(props: LinkItemProps) {
-  const { external, linkText, linkUrl, newWindow, onClick } = props;
+  const { external, linkText, linkUrl, newWindow, onClick, icon } = props;
 
   const internalButton = (
     <span>
       <Link href={linkUrl}>
-        <a onClick={onClick}>{linkText}</a>
+        <a onClick={onClick}>
+          { icon === 'chevron-left' && <ChevronLeft />}
+          {linkText}
+          { icon === 'chevron-right' && <ChevronRight />}
+        </a>
       </Link>
     </span>
   );

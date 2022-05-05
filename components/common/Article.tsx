@@ -3,6 +3,7 @@ export interface ArticleProps {
   createdAt?: string;
   detail?: string;
   id?: string;
+  order?: number;
   locale?: string;
   publishedAt?: string;
   rawHtml?: string;
