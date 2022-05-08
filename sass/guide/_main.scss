@@ -7,7 +7,7 @@
       background: rgba(33, 36, 49, 0.5);;
       padding: 48px 20px 64px;
       @media(min-width: $md) {
-        padding: 40px;
+        padding: 80px;
       }
 
       h1 {
@@ -31,9 +31,13 @@
         }
       }
     }
-    @media(min-width: $md) {
-    }
+    
     @media(min-width: $lg) {
+    }
+  }
+  @media(min-width: $md) {
+    .guide-prev-next {
+      padding: 0 40px;
     }
   }
 }

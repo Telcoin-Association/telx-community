@@ -18,6 +18,10 @@
       fill: $gray7;
     }
   }
+  .guide-nav-inner {
+    max-width: 320px;
+    margin: 0 auto;
+  }
   .guide-nav-page-title {
     font-size: 20px;
     margin: 0 0 48px;
@@ -47,6 +51,15 @@
 
   &.open {
     left: 0;
+  }
+
+  @media(min-width: $md) {
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+    .guide-nav-page-title {
+      font-size: 28px;
+    }
   }
 
   @media(min-width: $lg) {

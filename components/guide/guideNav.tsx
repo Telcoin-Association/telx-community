@@ -48,57 +48,59 @@ export default function GuideNav(props: GuideNavProps) {
       <div className="guide-nav-close" onClick={() => toggleGuideNavOpen(false)}>
         <CrossIcon size={24} />
       </div>
+      <div className="guide-nav-inner">
         { pageTitle && (
           <h2 className="guide-nav-page-title">
             {pageTitle}
           </h2>
         )}
-      <ul>
-        {
-          // map through categories
-          categories.map((category, i) => {
-            // gather category articles in an array
-            let categoryArticles: any[] = [];
-            if (articles) {
-              articles.map((article, i) => {
-                if (category === article.category) {
-                  const { title  } = article;
-                  const slugTitle = titleToSlug(title);
-                  categoryArticles.push({
-                    title: title,
-                    slugTitle: slugTitle
-                  })
-                }
-              })
-            }
-            // return top level category
-            return (
-              <li className="guide-nav-category" key={`${category}-${i}`}>
-                <h3>{category}</h3>
-                {/* return category's articles */}
-                <ul>
-                {
-                  categoryArticles.map((article, i) => {
-                    const { title, slugTitle } = article;
-                    const selectedArticle = title === selectedArticleTitle ? true : false;
-                    return (
-                      <li key={`${article.title}-${i}`} onClick={handleItemOnClick}>
-                        <LinkItem 
-                          linkUrl={`/education/${slugTitle}`}
-                          linkText={title}
-                          external={false}
-                          className={selectedArticle ? 'active' : 'inactive'}
-                        />
-                      </li>
-                    )
+        <ul>
+          {
+            // map through categories
+            categories.map((category, i) => {
+              // gather category articles in an array
+              let categoryArticles: any[] = [];
+              if (articles) {
+                articles.map((article, i) => {
+                  if (category === article.category) {
+                    const { title  } = article;
+                    const slugTitle = titleToSlug(title);
+                    categoryArticles.push({
+                      title: title,
+                      slugTitle: slugTitle
+                    })
                   }
-                  )}
-                </ul>
-              </li>
-            )
-          })
-        }
-      </ul>
+                })
+              }
+              // return top level category
+              return (
+                <li className="guide-nav-category" key={`${category}-${i}`}>
+                  <h3>{category}</h3>
+                  {/* return category's articles */}
+                  <ul>
+                  {
+                    categoryArticles.map((article, i) => {
+                      const { title, slugTitle } = article;
+                      const selectedArticle = title === selectedArticleTitle ? true : false;
+                      return (
+                        <li key={`${article.title}-${i}`} onClick={handleItemOnClick}>
+                          <LinkItem 
+                            linkUrl={`/education/${slugTitle}`}
+                            linkText={title}
+                            external={false}
+                            className={selectedArticle ? 'active' : 'inactive'}
+                          />
+                        </li>
+                      )
+                    }
+                    )}
+                  </ul>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
     </aside>
   )
 }

@@ -36,4 +36,14 @@
       }
     }
   }
+  .prev-container {
+    a {
+      justify-content: flex-start;
+    }
+  }
+  .next-container {
+    a {
+      justify-content: flex-end;
+    }
+  }
 }
