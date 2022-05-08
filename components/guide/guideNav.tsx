@@ -9,6 +9,7 @@ export interface GuideNavProps {
   selectedArticle?: ArticleProps;
   guideNavOpen?: boolean;
   toggleGuideNavOpen?: any;
+  pageTitle?: string;
 }
 
 
@@ -18,7 +19,8 @@ export default function GuideNav(props: GuideNavProps) {
     articles, 
     selectedArticle,
     guideNavOpen,
-    toggleGuideNavOpen
+    toggleGuideNavOpen,
+    pageTitle
   } = props;
 
   const selectedArticleTitle = selectedArticle && selectedArticle.title;
@@ -39,11 +41,18 @@ export default function GuideNav(props: GuideNavProps) {
     toggleGuideNavOpen(false);
   }
 
+  console.log('pageTitle', pageTitle)
+
   return (
     <aside className={ guideNavOpen ? 'guide-nav open' : 'guide-nav'}>
       <div className="guide-nav-close" onClick={() => toggleGuideNavOpen(false)}>
         <CrossIcon size={24} />
       </div>
+        { pageTitle && (
+          <h2 className="guide-nav-page-title">
+            {pageTitle}
+          </h2>
+        )}
       <ul>
         {
           // map through categories

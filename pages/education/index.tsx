@@ -14,6 +14,7 @@ interface PageProps {
 
 export default function Page(props: PageProps) {
   const { articles, welcomeArticle } = props;
+  const pageTitle = 'Education  |  Resources for DeFi and TELx';
   
   return (
     <div>
@@ -24,13 +25,16 @@ export default function Page(props: PageProps) {
       </Head>
 
       <div className="page">
-        <div className="page-title">
-          <h1>Education  |  Resources for DeFi and TELx</h1>
-        </div>
+        { pageTitle && (
+          <div className="page-title">
+            <h1>{pageTitle}</h1>
+          </div>
+        )}
   
-        <GuideLayout 
+        <GuideLayout
           article={welcomeArticle}
           articles={articles}
+          pageTitle={pageTitle}
         />
       </div>
 

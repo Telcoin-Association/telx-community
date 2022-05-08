@@ -1,5 +1,15 @@
 .guide-nav {
   z-index: 100000;
+  position: fixed;
+  left: -100%;
+  transition: left .2s;
+  top: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 80%;
+  background: $gradientNightVertical;
+  padding: 64px 24px;
+  overflow-y: auto;
   .guide-nav-close {
     position: absolute;
     right: 24px;
@@ -7,6 +17,11 @@
     svg {
       fill: $gray7;
     }
+  }
+  .guide-nav-page-title {
+    font-size: 20px;
+    margin: 0 0 48px;
+    color: $gray7;
   }
   ul {
     padding: 0;
@@ -16,7 +31,7 @@
       &.guide-nav-category {
         margin: 0 0 48px;
         h3 {
-          color: $gray5;
+          color: $gray7;
           font-size: 16px;
           line-height: 1.2;
           margin: 0 0 16px;
@@ -29,17 +44,6 @@
       }
     }
   }
-
-  position: fixed;
-  left: -100%;
-  transition: left .2s;
-  top: 0;
-  z-index: 1000;
-  height: 100%;
-  width: 80%;
-  background: $gradientNightVertical;
-  padding: 48px 24px;
-  overflow-y: auto;
 
   &.open {
     left: 0;

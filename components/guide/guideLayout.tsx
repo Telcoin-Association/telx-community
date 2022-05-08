@@ -5,13 +5,15 @@ import GuideMain from "./guideMain";
 import { ArticleProps } from "../common/Article";
 export interface GuideLayoutProps {
   article: ArticleProps;
-  articles: Array<ArticleProps>
+  articles: Array<ArticleProps>;
+  pageTitle?: string;
 }
 
 export default function GuideLayout(props: GuideLayoutProps) {
-  const { article, articles } = props;
+  const { article, articles, pageTitle } = props;
 
   const [ guideNavOpen, toggleGuideNavOpen ] = useState(false);
+  console.log('pageTitle', pageTitle)
 
   return (
     <div className="guide-layout">
@@ -26,6 +28,7 @@ export default function GuideLayout(props: GuideLayoutProps) {
           articles={articles}
           guideNavOpen={guideNavOpen}
           toggleGuideNavOpen={toggleGuideNavOpen}
+          pageTitle={pageTitle}
         />
         <GuideMain 
           article={article}

@@ -18,6 +18,7 @@ interface PageProps {
 export default function Page(props: PageProps) {
   const { articles, params } = props;
   const slug = params ? params.slug : '';
+  const pageTitle = 'Education  |  Resources for DeFi and TELx';
 
   // set the default selected article to be the welcome article
   let selectedArticle;
@@ -52,13 +53,16 @@ export default function Page(props: PageProps) {
       </Head>
 
       <div className="page">
-        <div className="page-title">
-          <h1>Education  |  Resources for DeFi and TELx</h1>
-        </div>
+        { pageTitle && (
+          <div className="page-title">
+            <h1>{pageTitle}</h1>
+          </div>
+        )}
   
         <GuideLayout 
           article={selectedArticle}
           articles={articles}
+          pageTitle={pageTitle}
         />
       </div>
 
