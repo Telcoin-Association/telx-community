@@ -40,4 +40,9 @@
       padding: 0 40px;
     }
   }
+  @media(min-width: $lg) {
+    .guide-prev-next {
+      padding: 0;
+    }
+  }
 }

@@ -64,6 +64,17 @@
 
   @media(min-width: $lg) {
     position: initial;
-    margin-top: 32px;
+    max-width: initial;
+    padding: 0;
+    background: transparent;
+    align-items: flex-start;
+    .guide-nav-close {
+      display: none;
+    }
+    .guide-nav-inner {
+      .guide-nav-page-title {
+        display: none;
+      }
+    }
   }
 }
