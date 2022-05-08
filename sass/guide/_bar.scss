@@ -1,13 +1,26 @@
 .guide-bar {
-  background-color: $gray6;
-  height: 48px;
+  background: $gradientTELx50;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  min-height: 64px;
+  .guide-bar-items {
+    h6 {
+      margin: 0;
+      color: $communityBlue;
+    }
+    h4 {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
   h4, svg {
     color: $white;
     fill: $white;
+  }
+  .tw-icon {
+    height: 24px;
   }
 
   @media(min-width: $lg) {

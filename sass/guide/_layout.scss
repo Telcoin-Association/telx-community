@@ -2,10 +2,9 @@
   background: $gradientNightHorizontal;
   .guide-layout-inner {
     display: grid;
-    padding: 20px;
 
     @media(min-width: $md) {
-      padding: 40px;
+      // padding: 40px;
     }
 
     @media(min-width: $lg) {

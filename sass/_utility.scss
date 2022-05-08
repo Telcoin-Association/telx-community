@@ -28,12 +28,12 @@
 
 
 .page-title {
-  background: $gradientTELx50;
-  text-align: center;
-  padding: 20px;
+  background-color: $gray12;
+  padding: 12px 20px;
   h1 {
     margin: 0;
     line-height: 1;
-    font-size: 20px;
+    font-size: 14px;
+    color: $gray5;
   }
 }

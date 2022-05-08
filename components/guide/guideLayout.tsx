@@ -12,9 +12,11 @@ export interface GuideLayoutProps {
 export default function GuideLayout(props: GuideLayoutProps) {
   const { article, articles } = props;
 
+  console.log('article', article)
+
   return (
     <div className="guide-layout">
-      <GuideBar />
+      <GuideBar selectedArticle={article} />
       <div className="guide-layout-inner">
         <GuideNav 
           selectedArticle={article}
