@@ -2,16 +2,24 @@ import React from "react";
 import LinkItem from "../common/LinkItem";
 import { titleToSlug } from "../../type-helpers";
 import { ArticleProps } from "../common/Article";
+import { Cross as CrossIcon } from "@transferwise/icons";
 
 export interface GuideNavProps {
   articles?: Array<any>
   selectedArticle?: ArticleProps;
+  guideNavOpen?: boolean;
+  toggleGuideNavOpen?: any;
 }
 
 
 
 export default function GuideNav(props: GuideNavProps) {
-  const { articles, selectedArticle } = props;
+  const { 
+    articles, 
+    selectedArticle,
+    guideNavOpen,
+    toggleGuideNavOpen
+  } = props;
 
   const selectedArticleTitle = selectedArticle && selectedArticle.title;
 
@@ -27,8 +35,15 @@ export default function GuideNav(props: GuideNavProps) {
     })
   }
 
+  const handleItemOnClick = () => {
+    toggleGuideNavOpen(false);
+  }
+
   return (
-    <aside className="guide-nav">
+    <aside className={ guideNavOpen ? 'guide-nav open' : 'guide-nav'}>
+      <div className="guide-nav-close" onClick={() => toggleGuideNavOpen(false)}>
+        <CrossIcon size={24} />
+      </div>
       <ul>
         {
           // map through categories
@@ -58,7 +73,7 @@ export default function GuideNav(props: GuideNavProps) {
                     const { title, slugTitle } = article;
                     const selectedArticle = title === selectedArticleTitle ? true : false;
                     return (
-                      <li key={`${article.title}-${i}`}>
+                      <li key={`${article.title}-${i}`} onClick={handleItemOnClick}>
                         <LinkItem 
                           linkUrl={`/education/${slugTitle}`}
                           linkText={title}

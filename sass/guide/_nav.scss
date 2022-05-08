@@ -1,4 +1,13 @@
 .guide-nav {
+  z-index: 100000;
+  .guide-nav-close {
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    svg {
+      fill: $gray7;
+    }
+  }
   ul {
     padding: 0;
     li {
@@ -8,7 +17,7 @@
         margin: 0 0 48px;
         h3 {
           color: $gray5;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 1.2;
           margin: 0 0 16px;
         }
@@ -22,10 +31,19 @@
   }
 
   position: fixed;
-  left: 100%;
+  left: -100%;
+  transition: left .2s;
   top: 0;
   z-index: 1000;
   height: 100%;
+  width: 80%;
+  background: $gradientNightVertical;
+  padding: 48px 24px;
+  overflow-y: auto;
+
+  &.open {
+    left: 0;
+  }
 
   @media(min-width: $lg) {
     position: initial;
