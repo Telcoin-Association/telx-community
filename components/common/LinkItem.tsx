@@ -29,11 +29,11 @@ export default function LinkItem(props: LinkItemProps) {
   );
 
   const externalButton = newWindow ? (
-    <a href={linkUrl} target="_blank" rel="noreferrer" onClick={onClick}>
+    <a href={linkUrl} target="_blank" rel="noreferrer" onClick={onClick} className={className}>
       {linkText}
     </a>
   ) : (
-    <a href={linkUrl} onClick={onClick}>
+    <a href={linkUrl} onClick={onClick} className={className}>
       {linkText}
     </a>
   );

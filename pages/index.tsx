@@ -4,6 +4,7 @@ import Image from 'next/image'
 import CardPageButton from '../components/common/CardPageButton'
 import TwitterMember from '../components/common/TwitterMember'
 import TwitterTimeline from '../components/common/TwitterTimeline'
+import LinkItem from '../components/common/LinkItem'
 
 const twitterMembers = [
   { 
@@ -45,6 +46,29 @@ const Home: NextPage = () => {
 
         <div className="page-title">
           <h1>Commuity-led Education and Analytics for TELx</h1>
+          <div className='home-title-buttons'>
+            <LinkItem 
+              linkUrl='/education'
+              linkText='View the Education Guide'
+              external={false}
+              newWindow={false}
+              className='button white'
+            />
+            <LinkItem 
+              linkUrl='/analytics'
+              linkText='View TELx Analytics'
+              external={false}
+              newWindow={false}
+              className='button white'
+            />
+            <LinkItem 
+              linkUrl='https://telx.network'
+              linkText='Visit the Official TELx Portal'
+              external={true}
+              newWindow={false}
+              className='button gradient link-telx'
+            />
+          </div>
         </div>
 
         <section className="home-intro-and-twitter">
