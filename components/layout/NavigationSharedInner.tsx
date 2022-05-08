@@ -20,7 +20,6 @@ export default function NavigationSharedInner(props: NavigationSharedInnerProps)
           <Link href="/">
             <a onClick={() => toggleMobileNavOpen(false)}>
               <h1>TELx Community</h1>
-              <h4>Made with 💙 by #telfam members</h4>
             </a>
           </Link>
         </div>

@@ -17,12 +17,6 @@ export const navigationItems = [
     external: false,
     newWindow: false
   },
-  {
-    link: "/tools",
-    name: "Tools",
-    external: false,
-    newWindow: false
-  },
 ];
 
 export const socialItems = [

@@ -13,13 +13,12 @@
 #navigation-mobile {
   display: block !important;
   position: fixed;
-  right: -80%;
+  right: -100%;
   width: 80%;
   top: 0;
   transition: right ease .2s;
   z-index: 1000;
   height: 100%;
-  border-left: solid 1px $gray2;
 
   .close-menu {
     position: absolute;
@@ -38,11 +37,16 @@
 #navigation-shared-inner {
   height: 100%;
   .navigation-shared-inner-skrim {
-    background: $gradientNightHorizontal;
+    background: $gradientNightVertical;
     padding: 40px 0;
     height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     .nsi-logo-wrapper {
-      padding: 40px;
+      text-align: center;
+      margin: 0 0 24px;
       h1 {
         color: $white;
       }
@@ -63,18 +67,17 @@
   ul {
     list-style: none;
     padding: 0;
-    border-bottom: solid 1px $gray2;
     margin: 0;
     li {
       margin: 0;
       @include textBold();
       position: relative;
       a {
-        color: $white;
+        color: $communityBlue;
         font-size: 16px;
-        padding: 20px 40px;
-        border-top: solid 1px $gray2;
+        padding: 20px 24px;
         display: block;
+        text-align: center;
         text-transform: uppercase;
         &:hover {
           color: $purple;
@@ -82,17 +85,23 @@
       }
       &.telx-portal-link {
         background: $gradientTELx;
+        margin: 24px 0 0;
         .tw-icon {
           position: absolute;
-          left: 40px;
           top: 18px;
+          left: 12px;
+          @media(min-width: $md) {
+            left: 40px;
+          }
           svg * {
             color: $white;
           }
         }
         a {
-          padding-left: 68px;
           color: $white;
+          @media(min-width: $md) {
+            padding-left: 68px;
+          }
         }
       }
     }
