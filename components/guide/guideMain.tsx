@@ -25,6 +25,8 @@ export default function GuideMain(props: GuideMainProps) {
   const updatedAt = article ? article.updatedAt : '';
   const youtube = article ? article.youtube : '';
 
+  console.log('article', article);
+
   return (
     <main className="guide-main">
       <div className="guide-main-inner">
