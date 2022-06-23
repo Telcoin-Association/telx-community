@@ -20,11 +20,11 @@ const currentSize = {
 
 let chartRef: uPlot;
 
-const numberWithCommas = function (x) {
+const numberWithCommas = function (x: number) {
     return x.toFixed(2).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 };
 
-const generateOptions = function (opts) {
+const generateOptions = function (opts: any) {
     const { valueKeys } = opts;
     const dummyPlugin = (): uPlot.Plugin => ({
         hooks: {
@@ -35,20 +35,20 @@ const generateOptions = function (opts) {
         },
     });
 
-    const series = valueKeys.map((vk) => {
+    const series = valueKeys.map((vk: any) => {
         return {
             label: getTooltipLabelByKey(vk),
             stroke: "rgba(20, 200, 255, 0.9)",
             scale: "$",
             width: 1,
             fill: "rgba(20, 200, 255, 0.4)",
-            value: (self, rawValue) => "$ " + numberWithCommas(rawValue),
+            value: (self: any, rawValue: number) => "$ " + numberWithCommas(rawValue),
         };
     });
 
     series.unshift({
         label: "Date",
-        value: (self, rawValue) => new Date(rawValue * 1000).toLocaleString(),
+        value: (self: any, rawValue: number) => new Date(rawValue * 1000).toLocaleString(),
     });
 
     const options = {
@@ -65,16 +65,18 @@ const generateOptions = function (opts) {
 export default function Chart(props: ChartProps) {
     let { title, chart_data, value_keys } = props;
 
-    const chartContainer = React.createRef();
+    chart_data = chart_data || [];
+
+    const chartContainer: React.RefObject<HTMLDivElement> = React.createRef();
 
     const valueKeys = value_keys || [];
 
-    const timeline = chart_data.map((c) => Math.floor(new Date(c.timeline).getTime() / 1000));
-    const values = [];
+    const timeline = chart_data.map((c: any) => Math.floor(new Date(c.timeline).getTime() / 1000));
+    const values: any = [];
 
-    valueKeys.forEach((vk) => values.push(chart_data?.map((c) => c[vk])));
+    valueKeys.forEach((vk) => values.push(chart_data?.map((c: any) => c[vk])));
 
-    const chartData = [timeline, ...values];
+    const chartData: uPlot.AlignedData = [timeline, ...values];
 
     const options = generateOptions({ valueKeys });
 
