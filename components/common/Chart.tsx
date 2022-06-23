@@ -18,7 +18,7 @@ const currentSize = {
     height: 500,
 };
 
-let chartRef = null;
+let chartRef: uPlot;
 
 const numberWithCommas = function (x) {
     return x.toFixed(2).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
