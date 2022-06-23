@@ -8,16 +8,26 @@ export default class BaseService {
         this.itemType = null;
     }
 
-    generateRequestObject() {
-        return {
-            method: "GET", // We only do GET requests in this project. Thus for the sake of the simplicty I hardcoded GET method for all requests.
+    generateRequestObject(req) {
+        req = req || { method: "GET", authRequired: true };
+        let { method, postData, authRequired } = req;
+        method = method || "GET";
+        authRequired === undefined ? true : authRequired;
+
+        const obj = {
+            method: method, // We only do GET requests in this project. Thus for the sake of the simplicty I hardcoded GET method for all requests.
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 Host: this.baseUrl,
-                Authorization: `Bearer ${this.accessToken}`,
             },
+            body: postData ? JSON.stringify(postData) : undefined,
         };
+
+        if (authRequired) {
+            obj.headers["Authorization"] = `Bearer ${this.accessToken}`;
+        }
+        return obj;
     }
 
     // Possible options for strapi query
@@ -45,7 +55,7 @@ export default class BaseService {
     generateRequestQuery() {
         const query = qs.stringify(
             {
-                sort: ["publishedAt:asc"],
+                sort: ["createdAt:asc"],
                 populate: "*",
                 pagination: {
                     pageSize: 100,
@@ -101,6 +111,17 @@ export default class BaseService {
 
         // we can handle pagination from here on if we need
         // result.meta.pagination... meta: { pagination: { page: 1, pageSize: 25, pageCount: 1, total: 1 } }
+
+        return result.data;
+    }
+
+    async fetchFiltered(postData, endpoint) {
+        endpoint = endpoint || this.itemType;
+
+        const url = `${this.baseUrl}/api/${endpoint}/`;
+        const reqObj = this.generateRequestObject({ method: "POST", postData, authRequired: false });
+        const response = await fetch(url, reqObj);
+        const result = await response.json();
 
         return result.data;
     }

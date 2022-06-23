@@ -1,119 +1,42 @@
-import { processChartData } from "../type-helpers";
-import { getFromChartCache, setToChartCache, listenOnChartInvalidated } from "../cache/";
-import { title } from "process";
+import BaseService from "./base-service";
+import { buildTooltipData, processArticle } from "../type-helpers";
 
-// Charts service is not derived from the strapi base service handler since it's not a strapi component
-export default class ChartsService {
-    constructor() {}
-
-    generateDuneRequestHeaders(embedUrl) {
-        const headers = {};
-
-        headers["accept"] = "application/json";
-        headers["content-type"] = "application/json";
-        headers["accept-encoding"] = "gzip, deflate, br";
-        headers["accept-language"] = "en,tr-TR;q=0.9,tr;q=0.8,en-US;q=0.7";
-        headers["dnt"] = "1";
-        headers["origin"] = "https://dune.xyz";
-        headers["referer"] = "https://dune.xyz/";
-        headers["sec-ch-ua"] = '"Not A;Brand";v="99","Chromium";v="99","Google Chrome";v="99"';
-        headers["sec-ch-ua-mobile"] = "?0";
-        headers["sec-ch-ua-platform"] = "Windows";
-        headers["sec-fetch-dest"] = "empty";
-        headers["sec-fetch-mode"] = "cors";
-        headers["sec-fetch-site"] = "cross-site";
-        headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36";
-        headers["x-hasura-api-key"] = "efaa8551-da5b-468e-a03e-16eee675db60";
-
-        return headers;
+export default class ChartsService extends BaseService {
+    constructor() {
+        super();
+        this.itemType = "charts";
     }
 
-    async makeDuneServiceCall(embedUrl, body) {
-        const reqOpts = {
-            method: "POST",
-            headers: this.generateDuneRequestHeaders(embedUrl),
-            body: body,
+    async filterDynamic(filter) {
+        const response = await super.fetchFiltered(filter, "chart-results/dynamic");
+        const result = {
+            chart_data: response.chart_data.map((r) => {
+                return {
+                    ...r,
+                    label: buildTooltipData(r, response.value_keys),
+                };
+            }),
+            value_keys: response.value_keys,
         };
-
-        //console.info("DUNE HEADERS => ", JSON.stringify(this.generateDuneRequestHeaders(embedUrl)));
-        //console.info("DUNE REQUEST OPTIONS => ", reqOpts);
-
-        const resp = await fetch("https://core-hsr.duneanalytics.com/v1/graphql", reqOpts);
-
-        const result = await resp.json();
-
-        if (result.errors) {
-            console.error("ERROR OCCURED =>", result.errors);
-            return null;
-        }
-
-        return result.data;
+        return result;
     }
 
-    async getResultId(embedUrl) {
-        // Split the embed url and return the first component as the embed's query id
-        const queryId = embedUrl.split("embeds/")[1].split("/").shift();
-        const body = `{\n
-            "operationName": "GetResult",\n
-            "variables": {\n
-                "query_id": ${queryId}\n
-            },\n
-            "query": "query GetResult($query_id: Int!, $parameters: [Parameter!]) {\\n  get_result(query_id: $query_id, parameters: $parameters) {\\n    job_id\\n    result_id\\n    __typename\\n  }\\n}\\n"\n
-        }`;
-
-
-        const result = await this.makeDuneServiceCall(embedUrl, body);
-
-        if (!result) {
-            return null;
-        }
-
-        if (!result.get_result.result_id) {
-            console.error("NEW RESULT HASN'T BEEN RECEIVED YET");
-            return null;
-        }
-
-        return result.get_result.result_id;
+    async fetchSingle(id) {
+        const rawData = await super.fetchSingle(id);
+        const result = processArticle(rawData.id, rawData.attributes);
+        return result;
     }
 
-    async getChartData(opts) {
-        const resultId = await this.getResultId(opts.embed_url);
-
-        if (!resultId) {
-            return null;
-        }
-
-        const body = `{
-            "operationName": "FindResultDataByResult",\
-            "variables": {\
-                "result_id": "${resultId}"\
-            },\
-            "query": "query FindResultDataByResult($result_id: uuid!) {\n  query_results(where: {id: {_eq: $result_id}}) {\n    id\n    job_id\n    error\n    runtime\n    generated_at\n    columns\n    __typename\n  }\n  get_result_by_result_id(args: {want_result_id: $result_id}) {\n    data\n    __typename\n  }\n}\n"\
-        }`;
-
-        const result = await this.makeDuneServiceCall(opts.embed_url, body);
-
-        if (result.query_results.length === 0) {
-            console.error("NO DATA RESIDES IN THE RESULT");
-            return null;
-        }
-
-        const response = processChartData(result, opts);
-
-        return response;
+    async fetchSingleBySlug(slug) {
+        const rawData = await super.fetchSingleBySlug(slug);
+        const result = processArticle(rawData.id, rawData.attributes);
+        return result;
     }
 
-    async getChart(chart) {
-        let data = getFromChartCache(chart.payload.embed_url);
-        if (!data) {
-            data = await this.getChartData(chart.payload);
-            setToChartCache(chart.payload.embed_url, { 
-              title: chart.title, 
-              description: chart.description || null,
-              category: chart.category || null,
-              ...data });
-        }
-
-        return data;
+    async fetchAll() {
+        const rawData = await super.fetchAll();
+        const result = rawData.map((a) => processArticle(a.id, a.attributes));
+        const orderedResult = result.sort((a, b) => (a.order > b.order ? 1 : b.order > a.order ? -1 : 0));
+        return orderedResult;
     }
 }

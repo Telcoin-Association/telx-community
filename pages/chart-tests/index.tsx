@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 
 import SingleTypeService from "../../services/single-type-service";
-import ChartsService from "../../services/charts-service";
+import ChartsService from "../../services/charts-service-old";
 
 import Chart from "../../components/common/Chart";
 
