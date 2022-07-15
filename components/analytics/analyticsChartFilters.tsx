@@ -2,6 +2,7 @@ import React from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 const animatedComponents = makeAnimated();
+import Radio from "../common/Radio";
 
 export interface AnalyticsChartFiltersProps {
   pools?: any;
@@ -52,6 +53,27 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
           components={animatedComponents} 
           styles={customStyles} 
         />
+
+        {/* filter protocol */}
+        <ul className="analytics-chart-filter">
+          {
+          protocols.map((protocol: { name: string; }, i: number) => {
+            const { name } = protocol;
+
+            console.log('this is the protocol', protocol)
+            return (
+              <li key={i}>
+                <Radio 
+                  text={name} 
+                  active={false} 
+                  onClick={handleProtocolChange} 
+                  onClickPayload={protocol}
+                />
+              </li>
+            )
+          }) 
+          }
+        </ul>
 
         <h4>Filter by Type</h4>
         <Select 

@@ -13,7 +13,6 @@ export default function GuideLayout(props: GuideLayoutProps) {
   const { article, articles, pageTitle } = props;
 
   const [ guideNavOpen, toggleGuideNavOpen ] = useState(false);
-  console.log('pageTitle', pageTitle)
 
   return (
     <div className="guide-layout">

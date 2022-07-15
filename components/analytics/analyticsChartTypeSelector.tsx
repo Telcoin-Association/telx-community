@@ -21,7 +21,7 @@ export default function AnalyticsChartTypeSelector(props: AnalyticsChartTypeSele
 
     return (
       <div className="analytics-chart-type-selector">
-        
+
         {/* <Select 
           instanceId="outputSelect" 
           placeholder="Output Type" 
@@ -40,8 +40,6 @@ export default function AnalyticsChartTypeSelector(props: AnalyticsChartTypeSele
               outputTypes.map((optionType: { name: string; value: string; }, i: number ) => {
 
                 const { name, value } = optionType;
-
-                console.log('selectedOutput', selectedOutput)
 
                 const handleTypeClick = () => {
                   setSelectedOutput(optionType);

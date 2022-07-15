@@ -41,8 +41,6 @@ export default function GuideNav(props: GuideNavProps) {
     toggleGuideNavOpen(false);
   }
 
-  console.log('pageTitle', pageTitle)
-
   return (
     <aside className={ guideNavOpen ? 'guide-nav open' : 'guide-nav'}>
       <div className="guide-nav-close" onClick={() => toggleGuideNavOpen(false)}>

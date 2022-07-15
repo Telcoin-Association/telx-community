@@ -17,7 +17,6 @@ export default function GuideBar(props: GuideBarProps) {
   } = props;
 
   const handleOnClick = () => {
-    console.log('click logged')
     toggleGuideNavOpen(!guideNavOpen);
   }
 
