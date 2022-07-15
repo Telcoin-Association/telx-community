@@ -1,0 +1,18 @@
+.analytics-section {
+
+  background-color: $gray115;
+  border-radius: 12px;
+  margin: 48px 0 0;
+
+  .analytics-section-header {
+    background-color: $gray12;
+    text-align: center;
+    padding: 32px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    h2 {
+      margin: 0 0 12px;
+    }
+  }
+}
