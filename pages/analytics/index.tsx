@@ -24,6 +24,9 @@ interface PageProps {
     description: String;
     analyticsPageData: any;
     defaultChartData: any;
+    selectedProtocol: {
+      name: string;
+    }
 }
 
 const outputTypes = [
@@ -76,7 +79,7 @@ const protocols = [
 
 // This is for react-select
 const customStyles = {
-    option: (provided, state) => ({
+    option: (provided:any, state:any) => ({
         ...provided,
         borderBottom: "1px dotted pink",
         color: state.isSelected ? "red" : "blue",
@@ -94,15 +97,20 @@ export default function Page(props: PageProps) {
     const [selectedType, setSelectedType] = React.useState(null);
     const [selectedOutput, setSelectedOutput] = React.useState(outputTypes[0]);
 
-    useEffect(async () => {
-        const data = await getChartData();
-        setChartData(data);
+    useEffect(() => {
+        
+        async () => {
+          const data = await getChartData();
+          setChartData(data);
+        }
+        
     }, [selectedPools, selectedProtocol, selectedType, selectedOutput]);
 
     async function getChartData() {
-        const queryData = chartQueryBuilder({
+        const queryData = chartQueryBuilder(
+          {
             filterByIndividualPools: selectedPools.length > 0 ? true : false,
-            pools: selectedPools.map((p) => p.poolId),
+            pools: selectedPools.map(( p: { poolId: string; }) => p.poolId),
             filterByProtocol: selectedProtocol ? true : false,
             protocol: selectedProtocol?.name,
             filterByType: selectedType ? true : false,
@@ -139,13 +147,56 @@ export default function Page(props: PageProps) {
             <br />
             {/* <AnalyticsLayout charts={pools} /> */}
 
-            <Select instanceId="poolsSelect" placeholder="Filter By Pools" getOptionLabel={(p) => p.name} getOptionValue={(p) => p} isClearable isMulti options={pools} value={selectedPools} onChange={handlePoolChange} components={animatedComponents} styles={customStyles} />
-            <Select instanceId="protocolSelect" placeholder="Filter By Protocol" getOptionLabel={(p) => p.name} getOptionValue={(p) => p} isClearable options={protocols} value={selectedProtocol} onChange={handleProtocolChange} components={animatedComponents} styles={customStyles} />
-            <Select instanceId="typeSelect" placeholder="Filter By Type" getOptionLabel={(p) => p.name} getOptionValue={(p) => p} isClearable options={types} value={selectedType} onChange={handleTypeChange} components={animatedComponents} styles={customStyles} />
-            <Select instanceId="outputSelect" placeholder="Output Type" getOptionLabel={(p) => p.name} getOptionValue={(p) => p} options={outputTypes} value={selectedOutput} onChange={setSelectedOutput} components={animatedComponents} styles={customStyles} />
+            <Select 
+              instanceId="poolsSelect" 
+              placeholder="Filter By Pools" 
+              getOptionLabel={(p:any) => p.name} 
+              getOptionValue={(p:any) => p} 
+              isClearable isMulti options={pools} 
+              value={selectedPools} 
+              onChange={handlePoolChange} 
+              components={animatedComponents} 
+              styles={customStyles} 
+            />
+
+            <Select 
+              instanceId="protocolSelect" 
+              placeholder="Filter By Protocol" 
+              getOptionLabel={(p:any) => p.name} 
+              getOptionValue={(p:any) => p} 
+              isClearable options={protocols} 
+              value={selectedProtocol} 
+              onChange={handleProtocolChange} 
+              components={animatedComponents} 
+              styles={customStyles} 
+            />
+
+            <Select 
+              instanceId="typeSelect" 
+              placeholder="Filter By Type" 
+              getOptionLabel={(p:any) => p.name} 
+              getOptionValue={(p:any) => p} 
+              isClearable options={types} 
+              value={selectedType} 
+              onChange={handleTypeChange} 
+              components={animatedComponents} 
+              styles={customStyles} 
+            />
+
+            <Select 
+              instanceId="outputSelect" 
+              placeholder="Output Type" 
+              getOptionLabel={(p:any) => p.name} 
+              getOptionValue={(p:any) => p} 
+              options={outputTypes} 
+              value={selectedOutput} 
+              onChange={setSelectedOutput}
+              components={animatedComponents} 
+              styles={customStyles} 
+            />
 
             <div>
-                <Chart {...chartData} />
+              <Chart {...chartData} />
             </div>
 
             {/* {pools.map((object: any, i: any) => (
