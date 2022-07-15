@@ -1,0 +1,38 @@
+.radio {
+  display: flex;  
+  grid-gap: 8px;
+  cursor: pointer;
+
+  &:hover {
+    p {
+      color: $telcoinBlueDark;
+    }
+  }
+
+  &.active {
+    p {
+      color: $white;
+    }
+    .radio-circle-inner {
+      background-color: $white;
+    }
+  }
+  .radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 1px $gray10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .radio-circle-inner {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+  }
+  p {
+    color: $telcoinBlue;
+  }
+}

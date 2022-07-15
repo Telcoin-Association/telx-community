@@ -21,7 +21,9 @@ export default function Article(props: ArticleProps) {
 
   return (
     <div className={`radio ${active ? 'active' : 'inactive'}`} onClick={handleOnClick}>
-      <div className="radio-circle"></div>
+      <div className="radio-circle">
+        <div className="radio-circle-inner"></div>
+      </div>
       <p>{text}</p>
     </div>
   )

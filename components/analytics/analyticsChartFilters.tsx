@@ -39,10 +39,8 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
 
     return (
       <div className="analytics-chart-filters">
-        Chart Filters
 
-        <h4>Filter by Protocol</h4>
-        <Select 
+        {/* <Select 
           instanceId="protocolSelect" 
           placeholder="Filter By Protocol" 
           getOptionLabel={(p: any) => p.name} 
@@ -52,21 +50,21 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
           onChange={handleProtocolChange} 
           components={animatedComponents} 
           styles={customStyles} 
-        />
+        /> */}
 
-        {/* filter protocol */}
+
+        <h4>Filter by Protocol</h4>
         <ul className="analytics-chart-filter">
           {
           protocols.map((protocol: { name: string; }, i: number) => {
             const { name } = protocol;
 
-            console.log('this is the protocol', protocol)
             return (
               <li key={i}>
                 <Radio 
                   text={name} 
-                  active={false} 
-                  onClick={handleProtocolChange} 
+                  active={selectedProtocol === protocol ? true : false } 
+                  onClick={handleProtocolChange}
                   onClickPayload={protocol}
                 />
               </li>
