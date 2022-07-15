@@ -4,10 +4,43 @@
     text-align: center;
   }
 
+  .analytics-chart-type-selector {
+    margin: 0 0 32px;
+    border-bottom: solid 1px $gray10;
+
+    @media(min-width: $md) {
+      margin: 0 0 48px;
+    }
+    @media(min-width: $md) {
+      margin: 0 0 64px;
+    }
+  }
+
   .analytics-chart-filters-and-chart {
     @media(min-width: $lg) {
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 240px 1fr;
+      grid-gap: 48px;
+    }
+    @media(min-width: $xl) {
+      grid-gap: 80px;
+    }
+
+    .analytics-chart-wrapper {
+      background-color: $gray12;
+      border-radius: 12px;
+      padding: 24px 0;
+
+      .chart-container {
+        .chart {
+          .uplot {
+            width: 100%;
+          }
+          .u-wrap {
+            width: 100% !important;
+          }
+        }
+      }
     }
   }
 }

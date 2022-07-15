@@ -21,7 +21,8 @@ export default function AnalyticsChartTypeSelector(props: AnalyticsChartTypeSele
 
     return (
       <div className="analytics-chart-type-selector">
-        <Select 
+        
+        {/* <Select 
           instanceId="outputSelect" 
           placeholder="Output Type" 
           getOptionLabel={(p: any) => p.name} 
@@ -31,7 +32,30 @@ export default function AnalyticsChartTypeSelector(props: AnalyticsChartTypeSele
           onChange={setSelectedOutput} 
           components={animatedComponents} 
           styles={customStyles} 
-        />
+        /> */}
+
+        <div className="switcher">
+          <ul>
+            {
+              outputTypes.map((optionType: { name: string; value: string; }, i: number ) => {
+
+                const { name, value } = optionType;
+
+                console.log('selectedOutput', selectedOutput)
+
+                const handleTypeClick = () => {
+                  setSelectedOutput(optionType);
+                };
+
+                return (
+                  <li key={i} onClick={handleTypeClick} className={ selectedOutput == optionType ? 'active' : 'inactive' }>
+                    {name}
+                  </li>
+                )   
+              })
+            }
+          </ul>
+        </div>
       </div>
     );
 }

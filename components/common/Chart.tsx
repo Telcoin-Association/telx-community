@@ -14,7 +14,7 @@ export interface ChartProps {
 }
 
 const currentSize = {
-    width: 1000,
+    width: 800,
     height: 500,
 };
 
@@ -52,7 +52,7 @@ const generateOptions = function (opts) {
     });
 
     const options = {
-        title: "Chart",
+        // title: "Chart",
         ...currentSize,
         series,
         plugins: [dummyPlugin()],

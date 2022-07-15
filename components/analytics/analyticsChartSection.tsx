@@ -28,25 +28,25 @@ const outputTypes = [
   //     value: "AMML",
   // },
   {
-      name: "Avg Liquidity Over Time",
-      value: "AVGLIQ",
-  },
-  {
-      name: "Min Liquidity Over Time",
-      value: "MINLIQ",
-  },
-  {
-      name: "Max Liquidity Over Time",
-      value: "MAXLIQ",
-  },
-  {
-      name: "Total Volume Over Time",
-      value: "VOL",
+    name: "Total Volume Over Time",
+    value: "VOL",
   },
   {
       name: "Total Fees Over Time",
       value: "FEES",
   },
+  {
+      name: "Avg Liquidity Over Time",
+      value: "AVGLIQ",
+  },
+  // {
+  //     name: "Min Liquidity Over Time",
+  //     value: "MINLIQ",
+  // },
+  // {
+  //     name: "Max Liquidity Over Time",
+  //     value: "MAXLIQ",
+  // },
 ];
 
 const types = [
@@ -138,41 +138,42 @@ export default function AnalyticsChartSection(props: AnalyticsChartSectionProps)
           <p>The following graph is dynamic. Select options to filter TELx pool data by pool, protocol, and product type.</p>
         </div>
 
+        <div className="analytics-section-body">
 
-        <AnalyticsChartTypeSelector 
-          outputTypes={outputTypes}
-          selectedOutput={selectedOutput}
-          setSelectedOutput={setSelectedOutput}
-          customStyles={customStyles}
-        />
-
-
-         
-        <div className="analytics-chart-filters-and-chart">
-
-          <AnalyticsChartFilters 
-            pools={pools}
-            selectedPools={selectedPools}
-            handlePoolChange={handlePoolChange}
+          <AnalyticsChartTypeSelector 
+            outputTypes={outputTypes}
+            selectedOutput={selectedOutput}
+            setSelectedOutput={setSelectedOutput}
             customStyles={customStyles}
-            protocols={protocols}
-            selectedProtocol={selectedProtocol}
-            handleProtocolChange={handleProtocolChange}
-            types={types}
-            selectedType={selectedType}
-            handleTypeChange={handleTypeChange}
           />
 
-          <div className="analytics-chart-wrapper">
-            <AnalyticsChartTitle 
-              selectedOutput={selectedOutput}
-              selectedProtocol={selectedProtocol}
-              selectedType={selectedType}
-              selectedPools={selectedPools}
-            />
-            <Chart {...chartData} />
-          </div>
+          <div className="analytics-chart-filters-and-chart">
 
+            <AnalyticsChartFilters 
+              pools={pools}
+              selectedPools={selectedPools}
+              handlePoolChange={handlePoolChange}
+              customStyles={customStyles}
+              protocols={protocols}
+              selectedProtocol={selectedProtocol}
+              handleProtocolChange={handleProtocolChange}
+              types={types}
+              selectedType={selectedType}
+              handleTypeChange={handleTypeChange}
+            />
+
+            <div className="analytics-chart-wrapper">
+              <AnalyticsChartTitle 
+                selectedOutput={selectedOutput}
+                selectedProtocol={selectedProtocol}
+                selectedType={selectedType}
+                selectedPools={selectedPools}
+              />
+              <Chart {...chartData} />
+            </div>
+
+          </div>
+          
         </div>
         
       </div>

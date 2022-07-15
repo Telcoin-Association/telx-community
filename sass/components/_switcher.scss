@@ -1,0 +1,36 @@
+.switcher {
+
+  max-width: 100vw;
+  overflow-x: scroll;
+  
+  ul {
+    padding: 0;
+    display: flex;
+    grid-gap: 40px;
+    overflow-x: auto;
+    min-width: max-content;
+    margin: 0;
+  
+  
+    li {
+      list-style: none;
+      font-weight: 700;
+      padding: 0 0 20px;
+      color: $telcoinBlue;
+      cursor: pointer;
+      width: fit-content;
+      display: inline-block;
+      list-style: none;
+      text-align: center;
+  
+      &:hover {
+        color: $telcoinBlueDark;
+      }
+  
+      &.active {
+        color: $white;
+        border-bottom: solid 2px $white;
+      }
+    }
+  }
+}
