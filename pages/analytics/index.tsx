@@ -18,6 +18,8 @@ import { chartQueryBuilder } from "../../type-helpers";
 
 const animatedComponents = makeAnimated();
 
+import AnalyticsChartSection from "../../components/analytics/analyticsChartSection";
+
 interface PageProps {
     pools: Array<object>;
     title: String;
@@ -203,26 +205,14 @@ export default function Page(props: PageProps) {
 
             <div>
 
-            <div>
+            <AnalyticsChartSection 
+              selectedOutput={selectedOutput}
+              selectedProtocol={selectedProtocol}
+              selectedType={selectedType}
+              selectedPools={selectedPools}
+            />
 
-
-              { selectedOutput && <h2>{selectedOutput.name}</h2> } 
               
-              { 
-                selectedProtocol && <h2>{selectedProtocol.name}</h2> 
-              } 
-
-              { 
-                selectedType && <h2>{ selectedType.name }</h2>
-              } 
-
-              { 
-              selectedPools.length > 0 ? selectedPools.map((pool: any, i) => { 
-                return <h2 key={i}>{pool?.name}</h2> }) :
-                <h2>All Pools</h2>
-              }
-              
-            </div>
 
                 <Chart {...chartData} />
             </div>
