@@ -24,9 +24,6 @@ interface PageProps {
     description: String;
     analyticsPageData: any;
     defaultChartData: any;
-    selectedProtocol: {
-      name: string;
-    }
 }
 
 const outputTypes = [
@@ -97,12 +94,18 @@ export default function Page(props: PageProps) {
     const [selectedType, setSelectedType] = React.useState(null);
     const [selectedOutput, setSelectedOutput] = React.useState(outputTypes[0]);
 
+    console.log('selectedPools', selectedPools)
+    console.log('selectedProtocol', selectedProtocol)
+    console.log('selectedType', selectedType)
+    console.log('selectedOutput', selectedOutput)
+
     useEffect(() => {
         
-        async () => {
+        const updateChart = async () => {
           const data = await getChartData();
           setChartData(data);
         }
+        updateChart();
         
     }, [selectedPools, selectedProtocol, selectedType, selectedOutput]);
 
@@ -147,13 +150,26 @@ export default function Page(props: PageProps) {
             <br />
             {/* <AnalyticsLayout charts={pools} /> */}
 
+
+            <Select 
+              instanceId="outputSelect" 
+              placeholder="Output Type" 
+              getOptionLabel={(p: any) => p.name} 
+              getOptionValue={(p: any) => p} 
+              options={outputTypes} 
+              value={selectedOutput} 
+              onChange={setSelectedOutput} 
+              components={animatedComponents} 
+              styles={customStyles} 
+            />
+
+
             <Select 
               instanceId="poolsSelect" 
               placeholder="Filter By Pools" 
-              getOptionLabel={(p:any) => p.name} 
-              getOptionValue={(p:any) => p} 
-              isClearable isMulti options={pools} 
-              value={selectedPools} 
+              getOptionLabel={(p: any) => p.name} 
+              getOptionValue={(p: any) => p} isClearable isMulti 
+              options={pools} value={selectedPools} 
               onChange={handlePoolChange} 
               components={animatedComponents} 
               styles={customStyles} 
@@ -162,8 +178,8 @@ export default function Page(props: PageProps) {
             <Select 
               instanceId="protocolSelect" 
               placeholder="Filter By Protocol" 
-              getOptionLabel={(p:any) => p.name} 
-              getOptionValue={(p:any) => p} 
+              getOptionLabel={(p: any) => p.name} 
+              getOptionValue={(p: any) => p} 
               isClearable options={protocols} 
               value={selectedProtocol} 
               onChange={handleProtocolChange} 
@@ -174,29 +190,41 @@ export default function Page(props: PageProps) {
             <Select 
               instanceId="typeSelect" 
               placeholder="Filter By Type" 
-              getOptionLabel={(p:any) => p.name} 
-              getOptionValue={(p:any) => p} 
-              isClearable options={types} 
+              getOptionLabel={(p: any) => p.name} 
+              getOptionValue={(p: any) => p} 
+              isClearable 
+              options={types} 
               value={selectedType} 
               onChange={handleTypeChange} 
               components={animatedComponents} 
               styles={customStyles} 
             />
 
-            <Select 
-              instanceId="outputSelect" 
-              placeholder="Output Type" 
-              getOptionLabel={(p:any) => p.name} 
-              getOptionValue={(p:any) => p} 
-              options={outputTypes} 
-              value={selectedOutput} 
-              onChange={setSelectedOutput}
-              components={animatedComponents} 
-              styles={customStyles} 
-            />
 
             <div>
-              <Chart {...chartData} />
+
+            <div>
+
+
+              { selectedOutput && <h2>{selectedOutput.name}</h2> } 
+              
+              { 
+                selectedProtocol && <h2>{selectedProtocol.name}</h2> 
+              } 
+
+              { 
+                selectedType && <h2>{ selectedType.name }</h2>
+              } 
+
+              { 
+              selectedPools.length > 0 ? selectedPools.map((pool: any, i) => { 
+                return <h2 key={i}>{pool?.name}</h2> }) :
+                <h2>All Pools</h2>
+              }
+              
+            </div>
+
+                <Chart {...chartData} />
             </div>
 
             {/* {pools.map((object: any, i: any) => (
