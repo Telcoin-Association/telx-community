@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import AnalyticsChartTitle from "./analyticsChartTitle";
-import dynamic from "next/dynamic";
 import AnalyticsChartFilters from "./analyticsChartFilters";
+import AnalyticsChartTypeSelector from "./analyticsChartTypeSelector";
+
+import dynamic from "next/dynamic";
+
 import { chartQueryBuilder } from "../../type-helpers";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
-const animatedComponents = makeAnimated();
 import ChartsService from "../../services/charts-service";
 
 const Chart = dynamic(() => import("../common/Chart"), {
@@ -79,10 +79,7 @@ export interface AnalyticsChartSectionProps {
 
 export default function AnalyticsChartSection(props: AnalyticsChartSectionProps) {
     
-    const { 
-      defaultChartData,
-      pools
-    } = props;
+    const { defaultChartData, pools } = props;
 
     const [chartData, setChartData] = React.useState(defaultChartData);
 
@@ -142,66 +139,42 @@ export default function AnalyticsChartSection(props: AnalyticsChartSectionProps)
         </div>
 
 
-
-        <Select 
-              instanceId="outputSelect" 
-              placeholder="Output Type" 
-              getOptionLabel={(p: any) => p.name} 
-              getOptionValue={(p: any) => p} 
-              options={outputTypes} 
-              value={selectedOutput} 
-              onChange={setSelectedOutput} 
-              components={animatedComponents} 
-              styles={customStyles} 
-            />
-
-            <Select 
-              instanceId="poolsSelect" 
-              placeholder="Filter By Pools" 
-              getOptionLabel={(p: any) => p.name} 
-              getOptionValue={(p: any) => p} isClearable isMulti 
-              options={pools} value={selectedPools} 
-              onChange={handlePoolChange} 
-              components={animatedComponents} 
-              styles={customStyles} 
-            />
-
-            <Select 
-              instanceId="protocolSelect" 
-              placeholder="Filter By Protocol" 
-              getOptionLabel={(p: any) => p.name} 
-              getOptionValue={(p: any) => p} 
-              isClearable options={protocols} 
-              value={selectedProtocol} 
-              onChange={handleProtocolChange} 
-              components={animatedComponents} 
-              styles={customStyles} 
-            />
-
-            <Select 
-              instanceId="typeSelect" 
-              placeholder="Filter By Type" 
-              getOptionLabel={(p: any) => p.name} 
-              getOptionValue={(p: any) => p} 
-              isClearable 
-              options={types} 
-              value={selectedType} 
-              onChange={handleTypeChange} 
-              components={animatedComponents} 
-              styles={customStyles} 
-            />
-
-
-        <AnalyticsChartTitle 
+        <AnalyticsChartTypeSelector 
+          outputTypes={outputTypes}
           selectedOutput={selectedOutput}
-          selectedProtocol={selectedProtocol}
-          selectedType={selectedType}
-          selectedPools={selectedPools}
+          setSelectedOutput={setSelectedOutput}
+          customStyles={customStyles}
         />
 
-        <AnalyticsChartFilters />
 
-        <Chart {...chartData} />
+         
+        <div className="analytics-chart-filters-and-chart">
+
+          <AnalyticsChartFilters 
+            pools={pools}
+            selectedPools={selectedPools}
+            handlePoolChange={handlePoolChange}
+            customStyles={customStyles}
+            protocols={protocols}
+            selectedProtocol={selectedProtocol}
+            handleProtocolChange={handleProtocolChange}
+            types={types}
+            selectedType={selectedType}
+            handleTypeChange={handleTypeChange}
+          />
+
+          <div className="analytics-chart-wrapper">
+            <AnalyticsChartTitle 
+              selectedOutput={selectedOutput}
+              selectedProtocol={selectedProtocol}
+              selectedType={selectedType}
+              selectedPools={selectedPools}
+            />
+            <Chart {...chartData} />
+          </div>
+
+        </div>
+        
       </div>
     );
 }

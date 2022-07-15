@@ -3,4 +3,11 @@
   .analytics-chart-title {
     text-align: center;
   }
+
+  .analytics-chart-filters-and-chart {
+    @media(min-width: $lg) {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+  }
 }
