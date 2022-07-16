@@ -5,7 +5,15 @@
   }
 
   .analytics-chart-filter  {
-    padding: 0;
+    margin: 0 0 48px;
+    h4 {
+      margin: 0 0 12px;
+      color: $gray5;
+      font-weight: 300;
+    }
+    ul {
+      padding: 0;
+    }
     li {
       list-style: none;
       margin: 0 0 12px;
@@ -19,7 +27,7 @@
     @media(min-width: $md) {
       margin: 0 0 48px;
     }
-    @media(min-width: $md) {
+    @media(min-width: $lg) {
       margin: 0 0 64px;
     }
   }
@@ -32,6 +40,7 @@
     }
     @media(min-width: $xl) {
       grid-gap: 80px;
+      grid-template-columns: 280px 1fr;
     }
 
     .analytics-chart-wrapper {

@@ -1,6 +1,5 @@
 import React from "react";
 import LinkItem from "../common/LinkItem";
-import ArticleProps from "./analyticsLayout";
 import { titleToSlug } from "../../type-helpers";
 
 export interface AnalyticsNavProps {

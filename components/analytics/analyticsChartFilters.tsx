@@ -3,6 +3,7 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 const animatedComponents = makeAnimated();
 import Radio from "../common/Radio";
+import AnalyticsPoolsSelect from "./analyticsPoolsSelect";
 
 export interface AnalyticsChartFiltersProps {
   pools?: any;
@@ -31,74 +32,63 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
       handleTypeChange
      } = props;
 
-    // async function handlePoolChange(selectedPools: any) {
-    //   setSelectedPools(selectedPools);
-    //   setSelectedProtocol(null);
-    //   setSelectedType(null);
-    // }
 
     return (
       <div className="analytics-chart-filters">
 
-        {/* <Select 
-          instanceId="protocolSelect" 
-          placeholder="Filter By Protocol" 
-          getOptionLabel={(p: any) => p.name} 
-          getOptionValue={(p: any) => p} 
-          isClearable options={protocols} 
-          value={selectedProtocol} 
-          onChange={handleProtocolChange} 
-          components={animatedComponents} 
-          styles={customStyles} 
-        /> */}
+        <div className="analytics-chart-filter">
+          <h4>Filter by Protocol</h4>
+          <ul>
+            {
+            protocols.map((protocol: { name: string; }, i: number) => {
+              const { name } = protocol;
 
+              return (
+                <li key={i}>
+                  <Radio 
+                    text={name} 
+                    active={selectedProtocol === protocol ? true : false } 
+                    onClick={handleProtocolChange}
+                    onClickPayload={protocol}
+                  />
+                </li>
+              )
+            }) 
+            }
+          </ul>
+        </div>
 
-        <h4>Filter by Protocol</h4>
-        <ul className="analytics-chart-filter">
-          {
-          protocols.map((protocol: { name: string; }, i: number) => {
-            const { name } = protocol;
+        <div className="analytics-chart-filter">
+          <h4>Filter by Type</h4>
+          <ul>
+            {
+            types.map((type: { name: string; }, i: number) => {
+              const { name } = type;
 
-            return (
-              <li key={i}>
-                <Radio 
-                  text={name} 
-                  active={selectedProtocol === protocol ? true : false } 
-                  onClick={handleProtocolChange}
-                  onClickPayload={protocol}
-                />
-              </li>
-            )
-          }) 
-          }
-        </ul>
+              return (
+                <li key={i}>
+                  <Radio 
+                    text={name} 
+                    active={selectedType === type ? true : false } 
+                    onClick={handleTypeChange}
+                    onClickPayload={type}
+                  />
+                </li>
+              )
+            }) 
+            }
+          </ul>
+        </div>
 
-        <h4>Filter by Type</h4>
-        <Select 
-          instanceId="typeSelect" 
-          placeholder="Filter By Type" 
-          getOptionLabel={(p: any) => p.name} 
-          getOptionValue={(p: any) => p} 
-          isClearable 
-          options={types} 
-          value={selectedType} 
-          onChange={handleTypeChange} 
-          components={animatedComponents} 
-          styles={customStyles} 
-        />
-
-        <h4>Filter by Pool</h4>
-        <Select 
-          instanceId="poolsSelect" 
-          placeholder="Filter By Pools" 
-          getOptionLabel={(p: any) => p.name} 
-          getOptionValue={(p: any) => p} isClearable isMulti 
-          options={pools} value={selectedPools} 
-          onChange={handlePoolChange} 
-          components={animatedComponents} 
-          styles={customStyles} 
-        />
-
+        <div className="analytics-chart-filter">
+          <h4>Filter by Pool</h4>
+          <AnalyticsPoolsSelect 
+            selectedPools={selectedPools}
+            pools={pools}
+            selectedType={selectedType}
+            handlePoolChange={handlePoolChange}
+          />
+        </div>
 
       </div>
     );
