@@ -30,7 +30,6 @@ export default function AnalyticsPoolsSelect(props: AnalyticsPoolsSelectProps) {
           selectedPools.map( (pool: { name: string; }, i: number) => {
             const { name } = pool;
 
-            console.log('name', name)
             return(
               <div key={i}>
                 { name !== '' ? name : 'All Pools' }

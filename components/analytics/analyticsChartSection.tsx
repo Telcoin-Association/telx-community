@@ -119,10 +119,9 @@ export default function AnalyticsChartSection(props: AnalyticsChartSectionProps)
     }
 
     async function handleProtocolChange(selectedProtocol: any) {
-      console.log('selectedProtocol', selectedProtocol)
-        setSelectedPools([]);
-        setSelectedProtocol(selectedProtocol);
-        setSelectedType(null);
+      setSelectedPools([]);
+      setSelectedProtocol(selectedProtocol);
+      setSelectedType(null);
     }
 
     async function handleTypeChange(selectedType: any) {

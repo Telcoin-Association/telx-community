@@ -20,9 +20,7 @@ export default function AnalyticsSelect(props: AnalyticsSelectProps) {
   const handleDropdownOnClick = () => {
     setShowoptionsSelect(!showOptionsSelect);
   }
-
-  console.log('selected', selected)
-  console.log('options', options)
+  
 
   return (
     <div className="analytics-select">
