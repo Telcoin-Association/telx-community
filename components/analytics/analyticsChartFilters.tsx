@@ -4,6 +4,7 @@ import makeAnimated from "react-select/animated";
 const animatedComponents = makeAnimated();
 import Radio from "../common/Radio";
 import AnalyticsPoolsSelect from "./analyticsPoolsSelect";
+import AnalyticsSelect from "./analyticsSelect";
 
 export interface AnalyticsChartFiltersProps {
   pools?: any;
@@ -38,7 +39,13 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
 
         <div className="analytics-chart-filter">
           <h4>Filter by Protocol</h4>
-          <ul>
+          <AnalyticsSelect 
+            selected={selectedProtocol}
+            options={protocols}
+            handleChange={handleProtocolChange}
+          />
+
+          {/* <ul>
             {
             protocols.map((protocol: { name: string; }, i: number) => {
               const { name } = protocol;
@@ -55,12 +62,18 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
               )
             }) 
             }
-          </ul>
+          </ul> */}
         </div>
 
         <div className="analytics-chart-filter">
           <h4>Filter by Type</h4>
-          <ul>
+          <AnalyticsSelect 
+            selected={selectedType}
+            options={types}
+            handleChange={handleTypeChange}
+          />
+
+          {/* <ul>
             {
             types.map((type: { name: string; }, i: number) => {
               const { name } = type;
@@ -77,7 +90,7 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
               )
             }) 
             }
-          </ul>
+          </ul> */}
         </div>
 
         <div className="analytics-chart-filter">
@@ -85,7 +98,6 @@ export default function AnalyticsChartFilters(props: AnalyticsChartFiltersProps)
           <AnalyticsPoolsSelect 
             selectedPools={selectedPools}
             pools={pools}
-            selectedType={selectedType}
             handlePoolChange={handlePoolChange}
           />
         </div>

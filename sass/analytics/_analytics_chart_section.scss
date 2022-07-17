@@ -14,9 +14,12 @@
   }
 
   .analytics-chart-filter  {
-    margin: 0 0 48px;
+    margin: 0 0 32px;
+    &:last-of-type {
+      margin: 0;
+    }
     h4 {
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       color: $gray5;
       font-weight: 300;
     }
@@ -44,14 +47,14 @@
   .analytics-chart-filters-and-chart {
     display: flex;
     flex-direction: column-reverse;
-    grid-gap: 32px;
+    grid-gap: 40px;
     @media(min-width: $lg) {
       display: grid;
       grid-template-columns: 240px 1fr;
       grid-gap: 48px;
     }
     @media(min-width: $xl) {
-      grid-gap: 80px;
+      // grid-gap: 80px;
       grid-template-columns: 280px 1fr;
     }
 
@@ -69,7 +72,7 @@
             width: 100% !important;
             height: 320px !important;
             @media(min-width: $md) {
-              height: 480px !important;
+              height: 400px !important;
             }
           }
         }

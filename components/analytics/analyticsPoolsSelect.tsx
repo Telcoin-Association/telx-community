@@ -4,7 +4,6 @@ import React from "react";
 export interface AnalyticsPoolsSelectProps {
   selectedPools: any;
   pools: any;
-  selectedType: any;
   handlePoolChange: any;
 }
 
@@ -13,7 +12,6 @@ export default function AnalyticsPoolsSelect(props: AnalyticsPoolsSelectProps) {
   const { 
     selectedPools, 
     pools,
-    selectedType,
     handlePoolChange
   } = props;
 

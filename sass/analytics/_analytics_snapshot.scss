@@ -16,6 +16,9 @@
     .protocol-value-pair {
       display: flex;
       justify-content: space-between;
+      p {
+        line-height: 1.5;
+      }
     }
     @media(min-width: $md) {
       grid-template-columns: repeat(2, 1fr);

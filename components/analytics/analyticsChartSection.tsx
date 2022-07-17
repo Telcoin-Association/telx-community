@@ -28,16 +28,16 @@ const outputTypes = [
   //     value: "AMML",
   // },
   {
+    name: "Avg Liquidity Over Time",
+    value: "AVGLIQ",
+  },
+  {
     name: "Total Volume Over Time",
     value: "VOL",
   },
   {
       name: "Total Fees Over Time",
       value: "FEES",
-  },
-  {
-      name: "Avg Liquidity Over Time",
-      value: "AVGLIQ",
   },
   // {
   //     name: "Min Liquidity Over Time",
