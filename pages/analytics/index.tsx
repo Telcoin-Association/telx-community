@@ -19,11 +19,8 @@ interface PageProps {
     defaultChartData: any;
 }
 
-
 export default function Page(props: PageProps) {
     const { pools, defaultChartData, title, description, analyticsPageData } = props;
-
-
 
 
     return (
