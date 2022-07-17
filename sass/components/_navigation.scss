@@ -54,6 +54,10 @@
     .nsi-menu-items {
       width: 100%;
       padding: 0;
+
+      a {
+        font-weight: bold;
+      }
     }
   }
   h1 {

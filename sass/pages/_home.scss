@@ -8,15 +8,36 @@ body {
     background: $gradientDarkPurple;
     padding: 64px 20px;
 
+    @media(min-width: $md) {
+      padding: 80px 32px;
+    }
+
+    @media(min-width: $xl) {
+      .home-hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    }
+
+    @media(min-width: $xxl) {
+      padding: 96px 32px;
+      .home-hero-inner {
+        // max-width: 1440px;
+        margin: 0 auto;
+      }
+    }
+
+    .analytics-section-body {
+      @media(min-width: $xl) {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
     .home-hero-titles {
       margin: 0 0 48px;
       @media(min-width: $md) {
         margin: 0 0 48px;
       }
-    }
-
-    @media(min-width: $md) {
-      padding: 64px 32px;
     }
 
     .home-hero-ctas {
@@ -27,14 +48,17 @@ body {
         border-radius: 4px;
         background-color: $purple;
         color: $white;
-        // border: solid 1px $white;
+        font-weight: bold;
+        &:hover {
+          background-color: $communityBlue;
+        }
       }
-      @media(min-width: $lg) {
+      @media(min-width: $md) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 32px;
         max-width: 800px;
-        margin: 16px auto 0;
+        margin: 32px auto 56px;
       }
       .link-telx {
         @media(min-width: $lg) {
@@ -110,14 +134,32 @@ body {
   @media(min-width: $lg) {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding: 0;
   }
 
   .home-intro-inner {
     margin: 0 0 64px;
   }
 
- 
+  .home-intro {
+    @media(min-width: $md) {
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      .home-intro-inner {
+        max-width: 640px;
+  
+        h1 {
+          font-size: 40px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
   .home-twitter {
+    background-color: $white;
     max-width: 480px;
     width: 100%;
     margin: 0 auto;
@@ -126,27 +168,3 @@ body {
 
 
 
-
-@media(min-width: $lg) {
-  .home-intro-and-twitter {
-    
-    .home-intro {
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      .home-intro-inner {
-        max-width: 640px;
-
-        h1 {
-          font-size: 40px;
-          line-height: 1.2;
-        }
-      }
-    }
-    .home-twitter {
-      background-color: $white;
-    }
-  }
-}

@@ -45,29 +45,33 @@ const Home: NextPage = () => {
 
         <div className="home-hero">
 
-          <div className="home-hero-titles">
-            <h1>TELx Community</h1>
-            <h2>Commuity-led Education and Analytics for TELx</h2>
-          </div>
+          <div className="home-hero-inner">
 
-          <div className='home-hero-ctas'>
-            <LinkItem 
-              linkUrl='/education'
-              linkText='View the Education Guide'
-              external={false}
-              newWindow={false}
-              className='button white'
-            />
-            <LinkItem 
-              linkUrl='/analytics'
-              linkText='View TELx Analytics'
-              external={false}
-              newWindow={false}
-              className='button white'
-            />
-          </div>
+            <div className="home-hero-titles">
+              <h1>TELx Community</h1>
+              <h2>Commuity-led Education and Analytics for TELx</h2>
+            </div>
 
-          <AnalyticsSnapshot />
+            <div className='home-hero-ctas'>
+              <LinkItem 
+                linkUrl='/education'
+                linkText='View the Education Guide'
+                external={false}
+                newWindow={false}
+                className='button white'
+              />
+              <LinkItem 
+                linkUrl='/analytics'
+                linkText='View TELx Analytics'
+                external={false}
+                newWindow={false}
+                className='button white'
+              />
+            </div>
+
+            <AnalyticsSnapshot />
+
+          </div>
         </div>
 
         <section className="home-intro-and-twitter">
