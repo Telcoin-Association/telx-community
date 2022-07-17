@@ -7,8 +7,9 @@
   z-index: 1000;
   height: 100%;
   width: 80%;
-  background-color: $gray115;
-  padding: 64px 24px;
+  background-color: $gray10;
+  filter: drop-shadow(0px 4px 41px rgba(0, 0, 0, 0.55));
+  padding: 80px 24px;
   overflow-y: auto;
   .guide-nav-close {
     position: absolute;
@@ -21,10 +22,21 @@
   .guide-nav-inner {
     max-width: 320px;
     margin: 0 auto;
+    .guide-nav-inner-title {
+      margin: 0 0 64px;
+      h2 {
+        margin: 0 0 8px;
+        line-height: 1;
+      }
+      p {
+        margin: 0;
+        color: $gray5;
+      }
+    }
   }
   .guide-nav-page-title {
     font-size: 20px;
-    margin: 0 0 48px;
+    margin: 0 0 64px;
     color: $gray7;
   }
   ul {
@@ -34,9 +46,13 @@
       margin: 0 0 12px;
       &.guide-nav-category {
         margin: 0 0 48px;
+        &:last-of-type {
+          margin: 0;
+        }
         h3 {
-          color: $gray7;
+          color: $gray5;
           font-size: 16px;
+          font-weight: 300;
           line-height: 1.2;
           margin: 0 0 16px;
         }
@@ -69,6 +85,8 @@
     align-items: flex-start;
     width: 100%;
     padding: 64px;
+    filter: none;
+    background-color: $gray115;
     .guide-nav-close {
       display: none;
     }
