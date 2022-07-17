@@ -3,6 +3,9 @@
   background-color: $gray115;
   border-radius: 12px;
   margin: 48px 0 0;
+  @media(min-width: $xl) {
+    margin: 0;
+  }
 
   .analytics-section-header {
     background-color: $gray12;
@@ -37,6 +40,9 @@
     }
     @media(min-width: $md) {
       padding: 64px 48px;
+    }
+    @media(min-width: $xl) {
+      padding: 64px 32px;
     }
   }
 }

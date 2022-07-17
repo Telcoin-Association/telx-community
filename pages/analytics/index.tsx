@@ -29,7 +29,9 @@ export default function Page(props: PageProps) {
     return (
         <div id="page-analytics">
             
-            <AnalyticsSnapshot />
+            <div>
+              <AnalyticsSnapshot />
+            </div>
 
             <AnalyticsChartSection
               defaultChartData={defaultChartData}
