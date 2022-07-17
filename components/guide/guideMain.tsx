@@ -40,11 +40,11 @@ export default function GuideMain(props: GuideMainProps) {
           updatedAt={updatedAt}
           youtube={youtube}
         />
+        <GuidePrevNext
+          article={article}
+          articles={articles}
+        />
       </div>
-      <GuidePrevNext
-        article={article}
-        articles={articles}
-      />
     </main>
   )
 }

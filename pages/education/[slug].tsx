@@ -53,12 +53,6 @@ export default function Page(props: PageProps) {
       </Head>
 
       <div className="page">
-        { pageTitle && (
-          <div className="page-title">
-            <h1>{pageTitle}</h1>
-          </div>
-        )}
-  
         <GuideLayout 
           article={selectedArticle}
           articles={articles}

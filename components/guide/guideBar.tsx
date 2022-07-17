@@ -6,6 +6,7 @@ export interface GuideBarProps {
   selectedArticle?: ArticleProps;
   guideNavOpen?: boolean;
   toggleGuideNavOpen?: any;
+  pageTitle?: string;
 }
 
 export default function GuideBar(props: GuideBarProps) {
@@ -14,6 +15,7 @@ export default function GuideBar(props: GuideBarProps) {
     selectedArticle,
     guideNavOpen,
     toggleGuideNavOpen,
+    pageTitle
   } = props;
 
   const handleOnClick = () => {
@@ -23,8 +25,10 @@ export default function GuideBar(props: GuideBarProps) {
   return (
     <div className="guide-bar" onClick={handleOnClick}>
       <div className="guide-bar-items">
-        {selectedArticle && selectedArticle.category && <h6>{selectedArticle.category}</h6>}
-        <h4>{selectedArticle && selectedArticle.title}</h4>
+        <h4>Education</h4>
+        <p>Resources for DeFi and TELx</p>
+        {/* {selectedArticle && selectedArticle.category && <h6>{selectedArticle.category}</h6>}
+        <h4>{selectedArticle && selectedArticle.title}</h4> */}
       </div>
       <MoreIcon size={24} />
     </div>

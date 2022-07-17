@@ -7,7 +7,7 @@
   z-index: 1000;
   height: 100%;
   width: 80%;
-  background: $gradientNightVertical;
+  background-color: $gray115;
   padding: 64px 24px;
   overflow-y: auto;
   .guide-nav-close {
@@ -66,8 +66,9 @@
     position: initial;
     max-width: initial;
     padding: 0;
-    background: transparent;
     align-items: flex-start;
+    width: 100%;
+    padding: 64px;
     .guide-nav-close {
       display: none;
     }
@@ -76,5 +77,8 @@
         display: none;
       }
     }
+  }
+  @media(min-width: $xl) {
+    padding: 80px;
   }
 }

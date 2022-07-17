@@ -47,11 +47,10 @@ export default function GuideNav(props: GuideNavProps) {
         <CrossIcon size={24} />
       </div>
       <div className="guide-nav-inner">
-        { pageTitle && (
-          <h2 className="guide-nav-page-title">
-            {pageTitle}
-          </h2>
-        )}
+        <div className="guide-nav-inner-title">
+          <h2>Education</h2>
+          <p>Resources for DeFi and TELx</p>
+        </div>
         <ul>
           {
             // map through categories

@@ -18,6 +18,7 @@ export default function GuideLayout(props: GuideLayoutProps) {
     <div className="guide-layout">
       <GuideBar 
         selectedArticle={article} 
+        pageTitle={pageTitle}
         guideNavOpen={guideNavOpen}
         toggleGuideNavOpen={toggleGuideNavOpen}
       />
