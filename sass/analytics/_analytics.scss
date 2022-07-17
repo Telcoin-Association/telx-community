@@ -15,12 +15,16 @@
     }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0;
+      font-size: 20px;
+    }
+    p {
+      margin: 12px 0 0;
     }
   }
 
   .analytics-section-body {
-    padding: 32px 12px;
+    padding: 32px 16px;
     @media(min-width: $md) {
       padding: 48px 32px;
     }

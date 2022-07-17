@@ -2,6 +2,15 @@
  
   .analytics-chart-title {
     text-align: center;
+    h2 {
+      font-size: 20px;
+      margin: 12px 0 8px;
+      font-weight: 300;
+    }
+    h4 {
+      margin: 0;
+      color: $gray5;
+    }
   }
 
   .analytics-chart-filter  {
@@ -33,6 +42,9 @@
   }
 
   .analytics-chart-filters-and-chart {
+    display: flex;
+    flex-direction: column-reverse;
+    grid-gap: 32px;
     @media(min-width: $lg) {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -55,6 +67,10 @@
           }
           .u-wrap {
             width: 100% !important;
+            height: 320px !important;
+            @media(min-width: $md) {
+              height: 480px !important;
+            }
           }
         }
       }

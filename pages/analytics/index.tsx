@@ -1,6 +1,4 @@
 import { GetStaticProps } from "next";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 
 import React from "react";
 
@@ -11,6 +9,7 @@ import PoolsService from "../../services/pools-service";
 import { chartQueryBuilder } from "../../type-helpers";
 
 import AnalyticsChartSection from "../../components/analytics/analyticsChartSection";
+import AnalyticsSnapshot from "../../components/analytics/analyticsSnapshot";
 
 interface PageProps {
     pools: Array<object>;
@@ -29,21 +28,14 @@ export default function Page(props: PageProps) {
 
     return (
         <div id="page-analytics">
-            <h1>{title}</h1>
-            <span>{description}</span>
-            <br />
-            <br />
-            {/* <AnalyticsLayout charts={pools} /> */}
+            
+            <AnalyticsSnapshot />
 
             <AnalyticsChartSection
               defaultChartData={defaultChartData}
               pools={pools}
             />
 
-
-            {/* {pools.map((object: any, i: any) => (
-                
-            ))} */}
         </div>
     );
 }
