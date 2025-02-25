@@ -9,7 +9,7 @@ const twitterMembers = [
   { 
     name: 'Andrew (Canada)', 
     handle: '@andrew_pinch', 
-    image: 'https://pbs.twimg.com/profile_images/1450753252581167106/xPXNBxp7_400x400.jpg', 
+    image: 'https://pbs.twimg.com/profile_images/1888469922101043200/8lB6LRIa_400x400.jpg', 
     linkUrl: 'https://twitter.com/andrew_pinch' 
   },
   { 
